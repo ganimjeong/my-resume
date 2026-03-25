@@ -1,20 +1,27 @@
-import { ResumeData } from '../data/resume'
+import type { ResumeData } from '../data/types'
 
 interface SkillsProps {
   data: ResumeData
 }
 
 export default function Skills({ data }: SkillsProps) {
+  const { skills } = data
+
   return (
-    <section className="mb-12">
-      <h2 className="mb-4 text-2xl font-semibold text-gray-800">Skills</h2>
-      <div className="space-y-3">
-        {data.skills.map((group) => (
-          <div key={group.category} className="flex gap-4">
-            <span className="w-24 shrink-0 text-sm font-medium text-gray-500">{group.category}</span>
+    <section className="py-12 border-b border-gray-300">
+      <h2 className="text-2xl font-bold text-gray-900 mb-6">{skills.title}</h2>
+      <div className="space-y-6">
+        {skills.categories.map((category) => (
+          <div key={category.name}>
+            <h3 className="text-lg font-semibold text-gray-800 mb-3">
+              {category.name}
+            </h3>
             <div className="flex flex-wrap gap-2">
-              {group.items.map((item) => (
-                <span key={item} className="rounded-md bg-gray-100 px-3 py-1 text-sm text-gray-700">
+              {category.items.map((item) => (
+                <span
+                  key={item}
+                  className="inline-block px-3 py-1 bg-gray-200 text-gray-800 rounded-full text-sm"
+                >
                   {item}
                 </span>
               ))}

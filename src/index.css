@@ -17,4 +17,8 @@
   .animate-fadeIn {
     animation: fadeIn 0.3s ease-out;
   }
+
+  .line div {
+    backface-visibility: hidden;
+  }
 }

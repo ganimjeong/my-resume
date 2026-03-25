@@ -1,21 +1,49 @@
-import { ResumeData } from '../data/resume'
+import type { ResumeData } from '../data/types'
 
 interface HeaderProps {
   data: ResumeData
 }
 
 export default function Header({ data }: HeaderProps) {
+  const { header } = data
+
   return (
-    <header className="py-16 text-center">
-      <h1 className="text-4xl font-bold text-gray-900">{data.name}</h1>
-      <p className="mt-2 text-xl text-gray-500">{data.title}</p>
-      <div className="mt-4 flex justify-center gap-4 text-sm">
-        <a href={`mailto:${data.email}`} className="text-blue-600 hover:underline">
-          {data.email}
-        </a>
-        <a href={data.github} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
-          GitHub
-        </a>
+    <header className="py-12 border-b border-gray-300">
+      <h1 className="text-4xl font-bold text-gray-900">{header.name}</h1>
+      <p className="text-xl text-gray-600 mt-2">{header.title}</p>
+      
+      <div className="flex flex-wrap gap-4 mt-6 text-sm text-gray-600">
+        {header.contact.email && (
+          <a 
+            href={`mailto:${header.contact.email}`}
+            className="hover:text-blue-600 transition-colors"
+          >
+            {header.contact.email}
+          </a>
+        )}
+        {header.contact.phone && (
+          <span>{header.contact.phone}</span>
+        )}
+        {header.contact.github && (
+          <a 
+            href={`https://${header.contact.github}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-blue-600 transition-colors"
+          >
+            GitHub
+          </a>
+        )}
+        {header.contact.linkedin && (
+          <a 
+            href={`https://${header.contact.linkedin}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-blue-600 transition-colors"
+          >
+            LinkedIn
+          </a>
+        )}
       </div>
     </header>
   )

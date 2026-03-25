@@ -1,24 +1,32 @@
-import { ResumeData } from '../data/resume'
+import type { ResumeData } from '../data/types'
 
 interface ExperienceProps {
   data: ResumeData
 }
 
 export default function Experience({ data }: ExperienceProps) {
+  const { experience } = data
+
   return (
-    <section className="mb-12">
-      <h2 className="mb-4 text-2xl font-semibold text-gray-800">Experience</h2>
-      <div className="space-y-6">
-        {data.experiences.map((exp, i) => (
-          <div key={i} className="border-l-2 border-gray-200 pl-4">
-            <div className="flex items-start justify-between">
+    <section className="py-12 border-b border-gray-300">
+      <h2 className="text-2xl font-bold text-gray-900 mb-6">{experience.title}</h2>
+      <div className="space-y-8">
+        {experience.items.map((item, index) => (
+          <div key={index}>
+            <div className="flex justify-between items-start mb-2">
               <div>
-                <h3 className="font-semibold text-gray-900">{exp.company}</h3>
-                <p className="text-sm text-gray-500">{exp.role}</p>
+                <h3 className="text-lg font-semibold text-gray-900">
+                  {item.position}
+                </h3>
+                <p className="text-gray-600">{item.company}</p>
               </div>
-              <span className="text-sm text-gray-400">{exp.period}</span>
+              <p className="text-sm text-gray-500">{item.period}</p>
             </div>
-            <p className="mt-2 text-sm text-gray-600">{exp.description}</p>
+            <ul className="list-disc list-inside space-y-1 text-gray-700">
+              {item.description.map((desc, i) => (
+                <li key={i}>{desc}</li>
+              ))}
+            </ul>
           </div>
         ))}
       </div>

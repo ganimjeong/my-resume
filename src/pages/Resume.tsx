@@ -1,10 +1,10 @@
 import { useParams } from 'react-router-dom'
-import Header from '../components/Header'
-import About from '../components/About'
-import Skills from '../components/Skills'
-import Experience from '../components/Experience'
-import Projects from '../components/Projects'
-import { resumeData } from '../data/resume'
+import Header from '../components/Header.tsx'
+import About from '../components/About.tsx'
+import Skills from '../components/Skills.tsx'
+import Experience from '../components/Experience.tsx'
+import Projects from '../components/Projects.tsx'
+import { resumeData } from '../data/index.ts'
 
 type Language = 'en' | 'ja' | 'ko'
 

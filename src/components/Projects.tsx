@@ -1,32 +1,49 @@
-import { ResumeData } from '../data/resume'
+import type { ResumeData } from '../data/types'
 
 interface ProjectsProps {
   data: ResumeData
 }
 
 export default function Projects({ data }: ProjectsProps) {
+  const { projects } = data
+
   return (
-    <section className="mb-12">
-      <h2 className="mb-4 text-2xl font-semibold text-gray-800">Projects</h2>
-      <div className="grid gap-4 sm:grid-cols-2">
-        {data.projects.map((project, i) => (
-          <a
-            key={i}
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-lg border border-gray-200 p-4 transition hover:border-blue-300 hover:shadow-sm"
+    <section className="py-12">
+      <h2 className="text-2xl font-bold text-gray-900 mb-6">{projects.title}</h2>
+      <div className="space-y-6">
+        {projects.items.map((project) => (
+          <div
+            key={project.name}
+            className="p-4 border border-gray-300 rounded-lg hover:shadow-md transition-shadow"
           >
-            <h3 className="font-semibold text-gray-900">{project.name}</h3>
-            <p className="mt-1 text-sm text-gray-500">{project.description}</p>
-            <div className="mt-3 flex flex-wrap gap-1">
-              {project.tech.map((t) => (
-                <span key={t} className="rounded bg-blue-50 px-2 py-0.5 text-xs text-blue-600">
-                  {t}
+            <div className="flex justify-between items-start mb-2">
+              <h3 className="text-lg font-semibold text-gray-900">
+                {project.link ? (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-blue-600 transition-colors"
+                  >
+                    {project.name}
+                  </a>
+                ) : (
+                  project.name
+                )}
+              </h3>
+            </div>
+            <p className="text-gray-700 mb-3">{project.description}</p>
+            <div className="flex flex-wrap gap-2">
+              {project.technologies.map((tech) => (
+                <span
+                  key={tech}
+                  className="inline-block px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs"
+                >
+                  {tech}
                 </span>
               ))}
             </div>
-          </a>
+          </div>
         ))}
       </div>
     </section>

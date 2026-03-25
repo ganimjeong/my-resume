@@ -1,11 +1,15 @@
-import { resumeData } from '../data/resume'
+import { ResumeData } from '../data/resume'
 
-export default function Skills() {
+interface SkillsProps {
+  data: ResumeData
+}
+
+export default function Skills({ data }: SkillsProps) {
   return (
     <section className="mb-12">
       <h2 className="mb-4 text-2xl font-semibold text-gray-800">Skills</h2>
       <div className="space-y-3">
-        {resumeData.skills.map((group) => (
+        {data.skills.map((group) => (
           <div key={group.category} className="flex gap-4">
             <span className="w-24 shrink-0 text-sm font-medium text-gray-500">{group.category}</span>
             <div className="flex flex-wrap gap-2">

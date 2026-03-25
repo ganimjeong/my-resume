@@ -1,11 +1,15 @@
-import { resumeData } from '../data/resume'
+import { ResumeData } from '../data/resume'
 
-export default function Experience() {
+interface ExperienceProps {
+  data: ResumeData
+}
+
+export default function Experience({ data }: ExperienceProps) {
   return (
     <section className="mb-12">
       <h2 className="mb-4 text-2xl font-semibold text-gray-800">Experience</h2>
       <div className="space-y-6">
-        {resumeData.experiences.map((exp, i) => (
+        {data.experiences.map((exp, i) => (
           <div key={i} className="border-l-2 border-gray-200 pl-4">
             <div className="flex items-start justify-between">
               <div>

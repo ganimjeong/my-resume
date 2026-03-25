@@ -1,11 +1,15 @@
-import { resumeData } from '../data/resume'
+import { ResumeData } from '../data/resume'
 
-export default function Projects() {
+interface ProjectsProps {
+  data: ResumeData
+}
+
+export default function Projects({ data }: ProjectsProps) {
   return (
     <section className="mb-12">
       <h2 className="mb-4 text-2xl font-semibold text-gray-800">Projects</h2>
       <div className="grid gap-4 sm:grid-cols-2">
-        {resumeData.projects.map((project, i) => (
+        {data.projects.map((project, i) => (
           <a
             key={i}
             href={project.link}

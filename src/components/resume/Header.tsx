@@ -121,7 +121,7 @@ export default function Header({ data }: HeaderProps) {
           </p>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-snug tracking-tighter mb-6">
             {header.greeting.replace('👋', '')}
-            <span ref={waveRef} className="inline-block cursor-pointer" onClick={playWave}>👋</span>
+            <span ref={waveRef} className="inline-block cursor-pointer" onMouseEnter={playWave} onClick={playWave}>👋</span>
           </h1>
 
           <p ref={aboutRef} className="text-gray-700 text-base md:text-lg lg:text-xl leading-relaxed tracking-tight whitespace-pre-line mb-4" style={{ opacity: 0 }}>

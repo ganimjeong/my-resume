@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import gsap from 'gsap'
 import { SplitText } from 'gsap/SplitText'
+import ShapeOverlay from '../components/ShapeOverlay'
 
 gsap.registerPlugin(SplitText)
 
@@ -22,6 +23,7 @@ const languageButtons: { lang: Language; label: string }[] = [
 export default function Landing() {
   const [hoveredLang, setHoveredLang] = useState<Language | null>(null)
   const [selectedLang, setSelectedLang] = useState<Language | null>(null)
+  const [playOverlay, setPlayOverlay] = useState(false)
   const navigate = useNavigate()
   const tubeRef = useRef<HTMLDivElement>(null)
   const timelineRef = useRef<gsap.core.Timeline | null>(null)
@@ -30,8 +32,21 @@ export default function Landing() {
     ja: [],
     ko: [],
   })
+  const pendingLangRef = useRef<Language | null>(null)
 
   const currentLang = hoveredLang || selectedLang || 'en'
+
+  const handleProceed = () => {
+    if (!selectedLang || playOverlay) return
+    pendingLangRef.current = selectedLang
+    setPlayOverlay(true)
+  }
+
+  const handleOverlayComplete = () => {
+    if (pendingLangRef.current) {
+      navigate(`/resume/${pendingLangRef.current}`)
+    }
+  }
 
   // 각 언어별 애니메이션 초기화
   useEffect(() => {
@@ -40,20 +55,15 @@ export default function Landing() {
       const lines = tubeRef.current?.querySelectorAll(selector)
       if (!lines || lines.length === 0) return
 
-      // 기존 SplitText 정리
       if (splitLinesRef.current[lang].length > 0) {
-        splitLinesRef.current[lang].forEach(split => {
-          split.revert()
-        })
+        splitLinesRef.current[lang].forEach(split => split.revert())
       }
 
-      // 새 SplitText 생성
       const splitLines = Array.from(lines).map(line =>
         new SplitText(line as HTMLElement, { type: 'chars', charsClass: 'char' })
       )
       splitLinesRef.current[lang] = splitLines
 
-      // 3D 설정
       const width = window.innerWidth
       const depth = -width / 8
       const transformOrigin = `50% 50% ${depth}px`
@@ -63,15 +73,11 @@ export default function Landing() {
         transformStyle: 'preserve-3d',
       })
 
-      // 타임라인 애니메이션
       const animTime = 0.9
       const tl = gsap.timeline({ repeat: -1 })
 
       splitLines.forEach((split, index) => {
-        gsap.set(split.chars, {
-          backfaceVisibility: 'hidden',
-        })
-
+        gsap.set(split.chars, { backfaceVisibility: 'hidden' })
         tl.fromTo(
           split.chars,
           { rotationX: -90 },
@@ -92,18 +98,17 @@ export default function Landing() {
       timelineRef.current = tl
     }
 
-    // 현재 언어의 애니메이션만 초기화
     initAnimationForLang(currentLang)
   }, [currentLang])
 
-  const handleProceed = () => {
-    if (selectedLang) {
-      navigate(`/resume/${selectedLang}`)
-    }
-  }
-
   return (
     <div className="fixed inset-0 bg-black flex items-center justify-center overflow-hidden">
+      <ShapeOverlay
+        mode="in"
+        play={playOverlay}
+        onComplete={handleOverlayComplete}
+      />
+
       <div className="text-center">
         {/* Greeting Text with 3D Rolling Effect */}
         <div
@@ -111,7 +116,6 @@ export default function Landing() {
           className="relative w-full"
           style={{ height: '24vw' }}
         >
-          {/* Multiple language versions - only one visible at a time */}
           {(['en', 'ja', 'ko'] as Language[]).map(lang => (
             <div
               key={lang}

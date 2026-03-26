@@ -4,7 +4,7 @@ import Resume from './pages/Resume'
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/my-resume">
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/resume/:lang" element={<Resume />} />

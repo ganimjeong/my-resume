@@ -6,6 +6,7 @@ import Experience from '../components/Experience.tsx'
 import Projects from '../components/Projects.tsx'
 import { resumeData } from '../data/index.ts'
 import ShapeOverlay from '../components/ShapeOverlay'
+import BentoGallery from '../components/BentoGallery'
 
 type Language = 'en' | 'ja' | 'ko'
 
@@ -17,6 +18,7 @@ export default function Resume() {
   return (
     <div className="min-h-screen bg-white">
       <ShapeOverlay mode="out" />
+      <BentoGallery />
       <div className="mx-auto max-w-2xl px-6">
         <Header data={data} />
         <main className="pb-16">

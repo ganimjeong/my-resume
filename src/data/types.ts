@@ -3,6 +3,7 @@ export interface ResumeData {
     name: string;
     title: string;
     greeting: string;
+    hashtags: string[];
     contact: {
       email: string;
       phone: string;
@@ -40,6 +41,13 @@ export interface ResumeData {
       description: string;
       technologies: string[];
       link?: string;
+    }>;
+  };
+  awards: {
+    title: string;
+    items: Array<{
+      award: string;
+      description: string;
     }>;
   };
 }

@@ -38,7 +38,7 @@ export default function Skills({ data }: SkillsProps) {
   }, [data])
 
   return (
-    <section className="py-12 border-b border-gray-300">
+    <section className="py-12 border-b border-gray-300 mb-8">
       <h2 className="text-2xl font-bold text-gray-900 mb-6">{skills.title}</h2>
       <div className="space-y-6">
         {skills.categories.map((category, index) => (

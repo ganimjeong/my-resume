@@ -89,13 +89,23 @@ export default function Header({ data }: HeaderProps) {
             {header.greeting.replace('👋', '')}
             <span ref={waveRef} className="inline-block cursor-pointer" onClick={playWave}>👋</span>
           </h1>
-          <p className="text-gray-700 text-base md:text-lg lg:text-xl leading-relaxed tracking-tight whitespace-pre-line">
+
+          <p className="text-gray-700 text-base md:text-lg lg:text-xl leading-relaxed tracking-tight whitespace-pre-line mb-4">
             {about.description.map((seg, i) =>
               seg.bold
                 ? <strong key={i}>{seg.text}</strong>
                 : <span key={i}>{seg.text}</span>
             )}
           </p>
+
+          {/* Hashtags */}
+          <div className="flex flex-wrap gap-3 mb-8">
+            {header.hashtags.map((tag, idx) => (
+              <span key={idx} className="text-blue-600 font-medium text-sm md:text-base">
+                {tag}
+              </span>
+            ))}
+          </div>
         </div>
 
         <div className="flex-shrink-0">

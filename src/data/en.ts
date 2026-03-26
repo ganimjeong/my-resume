@@ -166,4 +166,64 @@ export const enData: ResumeData = {
       { award: 'Best Video Selection', description: 'Reading Discussion UCC Production' },
     ],
   },
+  languages: {
+    title: '💬 Languages',
+    items: [
+      {
+        name: '🌐 Korean',
+        level: '⭐⭐⭐⭐⭐',
+        description: [
+          'Native speaker',
+          'Volunteer Korean language instructor for American high school students',
+          'Private Korean tutor for Japanese and Chinese students',
+          'Writing award recipient from Gwangju Metropolitan Office of Education',
+          'Selected for literary gifted program',
+          'Multiple writing competition awards',
+        ],
+      },
+      {
+        name: '🌐 Japanese',
+        level: '⭐⭐⭐⭐',
+        description: [
+          '(Former) Primary major',
+          '(Current) Minor',
+          '2024 Internship: Development intern in Osaka, Japan',
+          'Interpreter for Ritsumeikan University gPBL exchange program',
+          'Selected as short-term interpreter for student programs',
+          'Living experience with Japanese students (U.S. exchange)',
+          'Japanese conversation study group organizer',
+        ],
+      },
+      {
+        name: '🌐 English',
+        level: '⭐⭐⭐⭐',
+        description: [
+          'U.S. residence in 2008',
+          '2024 Exchange student: Computer Science major at University of Missouri',
+          'Australia residence in 2025',
+          'Living experience with American students (U.S. exchange)',
+          'Multiple presentation experiences in local classes',
+          'Volunteer Korean language instructor for American high school students',
+        ],
+      },
+      {
+        name: '🌐 Chinese',
+        level: '⭐⭐',
+        description: [
+          'Confucius Institute (Chinese language institute)',
+          'Short-term language study in China',
+          'Living experience with Chinese students (university dormitory) for 2 years',
+          'Living experience with Taiwanese students (U.S. exchange)',
+        ],
+      },
+      {
+        name: '🌐 Spanish',
+        level: '⭐',
+        description: [
+          'Spanish course at University of Missouri',
+          'Living experience with Peruvian students (U.S. exchange)',
+        ],
+      },
+    ],
+  },
 };

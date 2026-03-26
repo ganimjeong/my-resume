@@ -50,4 +50,12 @@ export interface ResumeData {
       description: string;
     }>;
   };
+  languages: {
+    title: string;
+    items: Array<{
+      name: string;
+      level: string;
+      description: string[];
+    }>;
+  };
 }

@@ -7,6 +7,7 @@ import Header from '@/components/resume/Header'
 import Skills from '@/components/resume/Skills'
 import Experience from '@/components/resume/Experience'
 import Awards from '@/components/resume/Awards'
+import Languages from '@/components/resume/Languages'
 import Projects from '@/components/resume/Projects'
 import { resumeData } from '@/data/index'
 import ShapeOverlay from '@/components/shared/ShapeOverlay'
@@ -38,15 +39,16 @@ export default function Resume() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-white relative">
+    <div className="min-h-screen bg-white">
       <ShapeOverlay mode="out" />
       <BentoGallery />
-      <div className="mx-auto max-w-2xl md:max-w-3xl lg:max-w-5xl px-6 relative z-10">
+      <div className="mx-auto max-w-2xl md:max-w-3xl lg:max-w-5xl px-6">
         <Header data={data} />
         <main className="pb-16">
           <Skills data={data} />
           <Experience data={data} />
           <Awards data={data} />
+          <Languages data={data} />
           <Projects data={data} />
         </main>
       </div>

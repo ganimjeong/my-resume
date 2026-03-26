@@ -8,9 +8,9 @@ export default function Experience({ data }: ExperienceProps) {
   const { experience } = data
 
   return (
-    <section className="py-12 border-b border-gray-300">
+    <section className="pt-12 pb-24 border-b border-gray-300">
       <h2 className="text-2xl font-bold text-gray-900 mb-6">{experience.title}</h2>
-      <div className="space-y-8">
+      <div className="space-y-14">
         {experience.items.map((item, index) => (
           <div key={index}>
             <div className="flex justify-between items-start mb-2">

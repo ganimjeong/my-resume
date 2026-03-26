@@ -141,7 +141,7 @@ export const enData: ResumeData = {
         name: 'Dongari-um',
         description: 'A university club management integrated platform that grew from a Kakao Tech Campus team project into a real service. As of March 2026, it has surpassed 90,000 page views on GA and is still in operation.',
         technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
-        siteLink: 'https://dongari-um.co.kr',
+        siteLink: 'https://dongarium.co.kr',
         githubLink: 'https://github.com/kakao-tech-campus-3rd-step3/Team18_FE',
         siteLabel: 'Visit Site',
         githubLabel: 'View GitHub',

@@ -4,7 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 import type { ResumeData } from '@/data/types'
-import myIcon from '@images/header/myIcon.png'
+import myIcon from '@images/headerSection/myIcon.png'
 
 interface HeaderProps {
   data: ResumeData

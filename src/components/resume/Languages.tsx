@@ -21,7 +21,7 @@ export default function Languages({ data }: LanguagesProps) {
 
     const proxy = { skew: 0 }
     const skewSetter = gsap.quickSetter(containerRef.current, 'skewY', 'deg')
-    const clamp = gsap.utils.clamp(-7, 7)
+    const clamp = gsap.utils.clamp(-1, 1)
 
     const st = ScrollTrigger.create({
       onUpdate(self) {

@@ -11,7 +11,7 @@ interface AwardsProps {
 
 const Awards = forwardRef<HTMLDivElement, AwardsProps>(function Awards({ data }, ref) {
   const { awards } = data
-  const sectionRef = useRef<HTMLElement>(null)
+  const sectionRef = useRef<HTMLDivElement>(null)
   const trophyRef = useRef<HTMLDivElement>(null)
   const listRef = useRef<HTMLDivElement>(null)
   const itemsRef = useRef<(HTMLDivElement | null)[]>([])
@@ -70,9 +70,9 @@ const Awards = forwardRef<HTMLDivElement, AwardsProps>(function Awards({ data },
   return (
     <section
       ref={(el) => {
-        sectionRef.current = el
-        if (typeof ref === 'function') ref(el)
-        else if (ref) ref.current = el
+        sectionRef.current = el as HTMLDivElement | null
+        if (typeof ref === 'function') ref(el as HTMLDivElement | null)
+        else if (ref && 'current' in ref) ref.current = el as HTMLDivElement | null
       }}
       className="py-12 border-b border-gray-300"
     >

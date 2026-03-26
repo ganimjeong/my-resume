@@ -24,6 +24,8 @@ export default function ClickEffect() {
     containerRef.current = container
 
     // 파티클 생성
+    gsap.set(container, { x: -9999, y: -9999 })
+
     const tl = gsap.timeline({ paused: true })
 
     for (let i = 0; i < DOT_QUANTITY; i++) {

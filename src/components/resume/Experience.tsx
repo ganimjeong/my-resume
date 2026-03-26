@@ -48,10 +48,10 @@ export default function Experience({ data }: ExperienceProps) {
           >
             <div className="flex justify-between items-start mb-2">
               <div>
-                <h3 className="text-lg font-semibold text-gray-900">
+                <h3 className="text-xl font-semibold text-gray-900">
                   {item.position}
                 </h3>
-                <p className="text-gray-600">{item.company}</p>
+                <p className="text-blue-600">{item.company}</p>
               </div>
               <p className="text-sm text-gray-500">{item.period}</p>
             </div>

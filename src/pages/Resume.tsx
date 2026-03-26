@@ -9,6 +9,7 @@ import Experience from '@/components/resume/Experience'
 import Awards from '@/components/resume/Awards'
 import Languages from '@/components/resume/Languages'
 import Projects from '@/components/resume/Projects'
+import Footer from '@/components/resume/Footer'
 import { resumeData } from '@/data/index'
 import ShapeOverlay from '@/components/shared/ShapeOverlay'
 import BentoGallery from '@/components/gallery/BentoGallery'
@@ -52,6 +53,7 @@ export default function Resume() {
           <Projects data={data} />
         </main>
       </div>
+      <Footer data={data} />
     </div>
   )
 }

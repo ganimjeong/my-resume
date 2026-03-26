@@ -135,13 +135,16 @@ export const koData: ResumeData = {
     ],
   },
   projects: {
-    title: '프로젝트',
+    title: '진행중인 프로젝트',
     items: [
       {
-        name: '나의 이력서',
-        description: '모던한 UI/UX를 갖춘 다국어 포트폴리오 웹사이트',
+        name: '동아리움',
+        description: '대학 동아리 지원 통합 플랫폼으로, 카카오 테크 캠퍼스 팀 프로젝트로 시작해 실제 서비스로 성장했습니다. 2026년 3월 기준 GA 페이지뷰 9만을 돌파했으며, 현재도 운영 중입니다.',
         technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
-        link: 'https://github.com/yourusername/my-resume',
+        siteLink: 'https://dongari-um.co.kr',
+        githubLink: 'https://github.com/kakao-tech-campus-3rd-step3/Team18_FE',
+        siteLabel: '사이트 보기',
+        githubLabel: 'GitHub 보기',
       },
     ],
   },

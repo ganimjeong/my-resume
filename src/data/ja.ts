@@ -135,13 +135,16 @@ export const jaData: ResumeData = {
     ],
   },
   projects: {
-    title: 'プロジェクト',
+    title: '進行中のプロジェクト',
     items: [
       {
-        name: 'マイレジュメ',
-        description: 'モダンなUI/UXを備えた多言語ポートフォリオWebサイト',
+        name: 'Dongari-um',
+        description: 'カカオ・テック・キャンパスのチームプロジェクトとして始まり、実際のサービスへと成長した大学サークル支援統合プラットフォームです。2026年3月現在、GAページビューが9万を突破し、現在も運営中です。',
         technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
-        link: 'https://github.com/yourusername/my-resume',
+        siteLink: 'https://dongari-um.co.kr',
+        githubLink: 'https://github.com/kakao-tech-campus-3rd-step3/Team18_FE',
+        siteLabel: 'サイトを見る',
+        githubLabel: 'GitHubを見る',
       },
     ],
   },

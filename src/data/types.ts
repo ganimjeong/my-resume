@@ -41,6 +41,10 @@ export interface ResumeData {
       description: string;
       technologies: string[];
       link?: string;
+      siteLink?: string;
+      githubLink?: string;
+      siteLabel?: string;
+      githubLabel?: string;
     }>;
   };
   awards: {

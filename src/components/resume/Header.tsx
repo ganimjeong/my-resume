@@ -1,5 +1,8 @@
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 import type { ResumeData } from '@/data/types'
 import myIcon from '@images/header/myIcon.png'
 
@@ -11,6 +14,40 @@ export default function Header({ data }: HeaderProps) {
   const { header, about } = data
   const toastRef = useRef<HTMLDivElement>(null)
   const tlRef = useRef<gsap.core.Timeline | null>(null)
+  const waveRef = useRef<HTMLSpanElement>(null)
+
+  const playWave = () => {
+    const el = waveRef.current
+    if (!el) return
+    gsap.killTweensOf(el)
+    gsap.fromTo(
+      el,
+      { rotation: 0, transformOrigin: '70% 70%' },
+      {
+        keyframes: [
+          { rotation: 20, duration: 0.15 },
+          { rotation: -10, duration: 0.15 },
+          { rotation: 20, duration: 0.15 },
+          { rotation: -5, duration: 0.15 },
+          { rotation: 10, duration: 0.15 },
+          { rotation: 0, duration: 0.2 },
+        ],
+        ease: 'power1.inOut',
+      }
+    )
+  }
+
+  useEffect(() => {
+    const el = waveRef.current
+    if (!el) return
+
+    ScrollTrigger.create({
+      trigger: el,
+      start: 'top 80%',
+      once: true,
+      onEnter: playWave,
+    })
+  }, [])
 
   const copyPhone = () => {
     navigator.clipboard.writeText(header.contact.phone)
@@ -32,7 +69,7 @@ export default function Header({ data }: HeaderProps) {
   }
 
   return (
-    <header className="py-12 border-b border-gray-300">
+    <header className="pt-20 pb-12 border-b border-gray-300">
       {/* Toast */}
       <div className="fixed inset-0 flex items-center justify-center pointer-events-none z-50">
         <div
@@ -44,58 +81,15 @@ export default function Header({ data }: HeaderProps) {
       </div>
 
       <div className="flex items-start justify-between gap-8">
-        {/* Left */}
         <div className="flex-1 min-w-0">
           <p className="text-sm font-semibold tracking-widest text-gray-400 uppercase mb-3">
             Portfolio
           </p>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-snug tracking-tighter mb-6">
-            {header.greeting}
+            {header.greeting.replace('👋', '')}
+            <span ref={waveRef} className="inline-block cursor-pointer" onClick={playWave}>👋</span>
           </h1>
-
-          {/* Contact */}
-          <div className="flex flex-wrap gap-4 mb-8 text-sm text-gray-500">
-            {header.contact.email && (
-              <a
-                href={`mailto:${header.contact.email}`}
-                className="hover:text-blue-600 transition-colors"
-              >
-                {header.contact.email}
-              </a>
-            )}
-            {header.contact.phone && (
-              <button
-                onClick={copyPhone}
-                className="hover:text-blue-600 transition-colors cursor-pointer"
-                title="Copy phone number"
-              >
-                {header.contact.phone}
-              </button>
-            )}
-            {header.contact.github && (
-              <a
-                href={`https://${header.contact.github}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-blue-600 transition-colors"
-              >
-                GitHub
-              </a>
-            )}
-            {header.contact.service && (
-              <a
-                href={`https://${header.contact.service}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-blue-600 transition-colors"
-              >
-                dongarium
-              </a>
-            )}
-          </div>
-
-          {/* About description */}
-          <p className="text-gray-700 text-sm md:text-base lg:text-lg leading-relaxed tracking-tight whitespace-pre-line">
+          <p className="text-gray-700 text-base md:text-lg lg:text-xl leading-relaxed tracking-tight whitespace-pre-line">
             {about.description.map((seg, i) =>
               seg.bold
                 ? <strong key={i}>{seg.text}</strong>
@@ -104,7 +98,6 @@ export default function Header({ data }: HeaderProps) {
           </p>
         </div>
 
-        {/* Right: illustration */}
         <div className="flex-shrink-0">
           <img
             src={myIcon}
@@ -112,6 +105,47 @@ export default function Header({ data }: HeaderProps) {
             className="w-48 h-56 md:w-64 md:h-72 lg:w-80 lg:h-96 object-contain"
           />
         </div>
+      </div>
+
+      {/* Bottom: contact */}
+      <div className="flex flex-wrap gap-6 mt-8 text-base md:text-lg text-gray-500">
+        {header.contact.email && (
+          <a
+            href={`mailto:${header.contact.email}`}
+            className="inline-block transition-all duration-200 hover:scale-110 hover:text-blue-600 origin-left"
+          >
+            {header.contact.email}
+          </a>
+        )}
+        {header.contact.phone && (
+          <button
+            onClick={copyPhone}
+            className="inline-block transition-all duration-200 hover:scale-110 hover:text-blue-600 origin-left cursor-pointer"
+            title="Copy phone number"
+          >
+            {header.contact.phone}
+          </button>
+        )}
+        {header.contact.github && (
+          <a
+            href={`https://${header.contact.github}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block transition-all duration-200 hover:scale-110 hover:text-blue-600 origin-left"
+          >
+            GitHub
+          </a>
+        )}
+        {header.contact.service && (
+          <a
+            href={`https://${header.contact.service}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block transition-all duration-200 hover:scale-110 hover:text-blue-600 origin-left"
+          >
+            dongarium
+          </a>
+        )}
       </div>
     </header>
   )

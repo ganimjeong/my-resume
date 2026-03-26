@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import gsap from 'gsap'
-import type { ResumeData } from '../data/types'
-import myIcon from '../../images/header/myIcon.png'
+import type { ResumeData } from '@/data/types'
+import myIcon from '@images/header/myIcon.png'
 
 interface HeaderProps {
   data: ResumeData

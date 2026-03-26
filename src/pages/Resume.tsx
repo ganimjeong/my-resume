@@ -1,11 +1,11 @@
 import { useParams } from 'react-router-dom'
-import Header from '../components/Header.tsx'
-import Skills from '../components/Skills.tsx'
-import Experience from '../components/Experience.tsx'
-import Projects from '../components/Projects.tsx'
-import { resumeData } from '../data/index.ts'
-import ShapeOverlay from '../components/ShapeOverlay'
-import BentoGallery from '../components/BentoGallery'
+import Header from '@/components/resume/Header'
+import Skills from '@/components/resume/Skills'
+import Experience from '@/components/resume/Experience'
+import Projects from '@/components/resume/Projects'
+import { resumeData } from '@/data/index'
+import ShapeOverlay from '@/components/shared/ShapeOverlay'
+import BentoGallery from '@/components/gallery/BentoGallery'
 
 type Language = 'en' | 'ja' | 'ko'
 

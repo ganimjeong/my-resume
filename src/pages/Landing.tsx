@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import gsap from 'gsap'
 import { SplitText } from 'gsap/SplitText'
-import ShapeOverlay from '../components/ShapeOverlay'
+import ShapeOverlay from '@/components/shared/ShapeOverlay'
 
 gsap.registerPlugin(SplitText)
 

@@ -1,4 +1,4 @@
-import type { ResumeData } from '../data/types'
+import type { ResumeData } from '@/data/types'
 
 interface ProjectsProps {
   data: ResumeData

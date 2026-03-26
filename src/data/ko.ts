@@ -3,18 +3,30 @@ import type { ResumeData } from './types';
 export const koData: ResumeData = {
   header: {
     name: '정아진',
-    title: '프론트엔드 개발자',
+    title: '프론트엔드 & AI 개발자',
+    greeting: '안녕하세요, Ajin Jeong 입니다 👋',
     contact: {
-      email: 'your.email@example.com',
-      phone: '+82-10-1234-5678',
-      github: 'github.com/yourusername',
-      linkedin: 'linkedin.com/in/yourusername',
+      email: 'ganimjeong@gmail.com',
+      phone: '+82 10-3122-5629',
+      github: 'github.com/ganimjeong',
+      service: 'dongarium.co.kr',
     },
+  },
+  ui: {
+    copied: '복사되었습니다',
   },
   about: {
     title: '소개',
-    description:
-      'React, TypeScript 및 최신 웹 기술에 전문성을 갖춘 열정적인 프론트엔드 개발자입니다. 직관적이고 성능이 뛰어난 사용자 경험을 만드는 데 집중하고 있습니다.',
+    description: [
+      { text: '저는 ' },
+      { text: '프론트엔드와 인공지능', bold: true },
+      { text: ' 분야를 개발하는 ' },
+      { text: '정아진', bold: true },
+      { text: '입니다!\n' },
+      { text: '주전공은 ' },
+      { text: 'IoT인공지능융합전공', bold: true },
+      { text: ',\n융합 이전 전공은 경제학과,\n부전공은 일어일문학과입니다.' },
+    ],
   },
   skills: {
     title: '기술',

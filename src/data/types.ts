@@ -2,16 +2,20 @@ export interface ResumeData {
   header: {
     name: string;
     title: string;
+    greeting: string;
     contact: {
       email: string;
       phone: string;
       github: string;
-      linkedin: string;
+      service: string;
     };
+  };
+  ui: {
+    copied: string;
   };
   about: {
     title: string;
-    description: string;
+    description: Array<{ text: string; bold?: boolean }>;
   };
   skills: {
     title: string;

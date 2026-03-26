@@ -3,18 +3,30 @@ import type { ResumeData } from './types';
 export const enData: ResumeData = {
   header: {
     name: 'Ajin JEONG',
-    title: 'Frontend Developer',
+    title: 'Frontend & AI Developer',
+    greeting: "Hello, I'm Ajin Jeong 👋",
     contact: {
-      email: 'your.email@example.com',
-      phone: '+82-10-1234-5678',
-      github: 'github.com/yourusername',
-      linkedin: 'linkedin.com/in/yourusername',
+      email: 'ganimjeong@gmail.com',
+      phone: '+82 10-3122-5629',
+      github: 'github.com/ganimjeong',
+      service: 'dongarium.co.kr',
     },
+  },
+  ui: {
+    copied: 'Copied!',
   },
   about: {
     title: 'About Me',
-    description:
-      'Passionate Frontend Developer with expertise in React, TypeScript, and modern web technologies. Focused on creating intuitive and performant user experiences.',
+    description: [
+      { text: "I'm " },
+      { text: 'Ajin Jeong', bold: true },
+      { text: ', a developer in ' },
+      { text: 'Frontend & AI', bold: true },
+      { text: '!\n' },
+      { text: 'Major: ' },
+      { text: 'IoT AI Convergence', bold: true },
+      { text: ',\nPrevious major: Economics,\nMinor: Japanese Language & Literature.' },
+    ],
   },
   skills: {
     title: 'Skills',

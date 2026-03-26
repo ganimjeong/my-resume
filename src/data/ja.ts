@@ -3,18 +3,30 @@ import type { ResumeData } from './types';
 export const jaData: ResumeData = {
   header: {
     name: 'ジョン・アジン',
-    title: 'フロントエンド開発者',
+    title: 'フロントエンド & AI 開発者',
+    greeting: 'はじめまして、ジョン・アジンです 👋',
     contact: {
-      email: 'your.email@example.com',
-      phone: '+82-10-1234-5678',
-      github: 'github.com/yourusername',
-      linkedin: 'linkedin.com/in/yourusername',
+      email: 'ganimjeong@gmail.com',
+      phone: '+82 10-3122-5629',
+      github: 'github.com/ganimjeong',
+      service: 'dongarium.co.kr',
     },
+  },
+  ui: {
+    copied: 'コピーしました',
   },
   about: {
     title: '自己紹介',
-    description:
-      'React、TypeScript、モダンなWeb技術に精通した情熱的なフロントエンド開発者。直感的で高性能なユーザー体験の創造に注力しています。',
+    description: [
+      { text: '私は' },
+      { text: 'フロントエンド・AI', bold: true },
+      { text: '分野を開発する' },
+      { text: 'ジョン・アジン', bold: true },
+      { text: 'です！\n' },
+      { text: '主専攻は' },
+      { text: 'IoT人工知能融合専攻', bold: true },
+      { text: '、\n融合前の専攻は経済学科、\n副専攻は日本語日本文学科です。' },
+    ],
   },
   skills: {
     title: 'スキル',

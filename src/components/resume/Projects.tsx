@@ -1,11 +1,12 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { SplitText } from 'gsap/SplitText'
 import type { ResumeData } from '@/data/types'
 import dongariLogo from '@images/projectSection/Dongari-um.png'
 import dLetter from '@images/projectSection/D.png'
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger, SplitText)
 
 interface ProjectsProps {
   data: ResumeData
@@ -16,6 +17,7 @@ export default function Projects({ data }: ProjectsProps) {
   const project = projects.items[0]
   const sectionRef = useRef<HTMLDivElement>(null)
   const dRef = useRef<HTMLImageElement>(null)
+  const descRef = useRef<HTMLParagraphElement>(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -40,6 +42,38 @@ export default function Projects({ data }: ProjectsProps) {
     return () => ctx.revert()
   }, [])
 
+  // 설명 텍스트 SplitText 스크롤 애니메이션
+  useEffect(() => {
+    if (!descRef.current) return
+    const el = descRef.current
+    gsap.set(el, { opacity: 1 })
+
+    const ctx = gsap.context(() => {
+      document.fonts.ready.then(() => {
+        SplitText.create(el, {
+          type: 'words,lines',
+          mask: 'lines',
+          linesClass: 'line',
+          autoSplit: true,
+          onSplit(instance) {
+            return gsap.from(instance.lines, {
+              yPercent: 120,
+              stagger: 0.1,
+              scrollTrigger: {
+                trigger: el,
+                scrub: true,
+                start: 'clamp(top 95%)',
+                end: 'clamp(top 60%)',
+              },
+            })
+          },
+        })
+      })
+    })
+
+    return () => ctx.revert()
+  }, [data])
+
   return (
     <section className="py-16 border-b border-gray-300" ref={sectionRef}>
       <h2 className="text-2xl font-bold text-gray-900 mb-10">{projects.title}</h2>
@@ -57,7 +91,7 @@ export default function Projects({ data }: ProjectsProps) {
           </div>
 
           {/* 설명 */}
-          <p className="text-gray-700 text-base md:text-lg leading-relaxed">
+          <p ref={descRef} className="text-gray-700 text-base md:text-lg leading-relaxed" style={{ opacity: 0 }}>
             {project.description}
           </p>
 

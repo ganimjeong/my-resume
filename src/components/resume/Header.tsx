@@ -1,8 +1,9 @@
 import { useRef, useEffect } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { SplitText } from 'gsap/SplitText'
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger, SplitText)
 import type { ResumeData } from '@/data/types'
 import myIcon from '@images/headerSection/myIcon.png'
 
@@ -13,6 +14,7 @@ interface HeaderProps {
 export default function Header({ data }: HeaderProps) {
   const { header, about } = data
   const toastRef = useRef<HTMLDivElement>(null)
+  const aboutRef = useRef<HTMLParagraphElement>(null)
   const tlRef = useRef<gsap.core.Timeline | null>(null)
   const waveRef = useRef<HTMLSpanElement>(null)
 
@@ -48,6 +50,38 @@ export default function Header({ data }: HeaderProps) {
       onEnter: playWave,
     })
   }, [])
+
+  // About 설명 SplitText 스크롤 애니메이션
+  useEffect(() => {
+    if (!aboutRef.current) return
+    const el = aboutRef.current
+    gsap.set(el, { opacity: 1 })
+
+    const ctx = gsap.context(() => {
+      document.fonts.ready.then(() => {
+        SplitText.create(el, {
+          type: 'words,lines',
+          mask: 'lines',
+          linesClass: 'line',
+          autoSplit: true,
+          onSplit(instance) {
+            return gsap.from(instance.lines, {
+              yPercent: 120,
+              stagger: 0.1,
+              scrollTrigger: {
+                trigger: el,
+                scrub: true,
+                start: 'clamp(top 90%)',
+                end: 'clamp(top 45%)',
+              },
+            })
+          },
+        })
+      })
+    })
+
+    return () => ctx.revert()
+  }, [data])
 
   const copyPhone = () => {
     navigator.clipboard.writeText(header.contact.phone)
@@ -90,7 +124,7 @@ export default function Header({ data }: HeaderProps) {
             <span ref={waveRef} className="inline-block cursor-pointer" onClick={playWave}>👋</span>
           </h1>
 
-          <p className="text-gray-700 text-base md:text-lg lg:text-xl leading-relaxed tracking-tight whitespace-pre-line mb-4">
+          <p ref={aboutRef} className="text-gray-700 text-base md:text-lg lg:text-xl leading-relaxed tracking-tight whitespace-pre-line mb-4" style={{ opacity: 0 }}>
             {about.description.map((seg, i) =>
               seg.bold
                 ? <strong key={i}>{seg.text}</strong>

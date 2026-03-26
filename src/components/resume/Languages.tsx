@@ -15,6 +15,36 @@ export default function Languages({ data }: LanguagesProps) {
   const contentRefs = useRef<(HTMLDivElement | null)[]>([])
   const containerRef = useRef<HTMLDivElement>(null)
 
+  // 스크롤 속도 기반 기울기
+  useEffect(() => {
+    if (!containerRef.current) return
+
+    const proxy = { skew: 0 }
+    const skewSetter = gsap.quickSetter(containerRef.current, 'skewY', 'deg')
+    const clamp = gsap.utils.clamp(-7, 7)
+
+    const st = ScrollTrigger.create({
+      onUpdate(self) {
+        const skew = clamp(self.getVelocity() / -300)
+        if (Math.abs(skew) > Math.abs(proxy.skew)) {
+          proxy.skew = skew
+          gsap.to(proxy, {
+            skew: 0,
+            duration: 0.8,
+            ease: 'power3',
+            overwrite: true,
+            onUpdate: () => skewSetter(proxy.skew),
+          })
+        }
+      },
+    })
+
+    return () => {
+      st.kill()
+      gsap.set(containerRef.current, { skewY: 0 })
+    }
+  }, [])
+
   // 언어 카드 애니메이션
   useEffect(() => {
     const ctx = gsap.context(() => {

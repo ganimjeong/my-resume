@@ -13,6 +13,7 @@ export interface ResumeData {
   };
   ui: {
     copied: string;
+    printLabel: string;
   };
   about: {
     title: string;

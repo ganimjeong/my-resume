@@ -15,6 +15,7 @@ export const koData: ResumeData = {
   },
   ui: {
     copied: '복사되었습니다',
+    printLabel: '인터랙션 없이 보기',
   },
   about: {
     title: '소개',

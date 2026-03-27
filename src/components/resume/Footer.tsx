@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { Link, useParams } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import type { ResumeData } from '@/data/types'
@@ -11,6 +12,7 @@ interface FooterProps {
 
 export default function Footer({ data }: FooterProps) {
   const { header, ui } = data
+  const { lang } = useParams<{ lang: string }>()
   const footerRef = useRef<HTMLElement>(null)
   const eyeSvgRef = useRef<SVGSVGElement>(null)
   const irisRef = useRef<SVGCircleElement>(null)
@@ -153,7 +155,7 @@ export default function Footer({ data }: FooterProps) {
         </div>
 
         {/* Contact links */}
-        <div className="flex flex-wrap gap-6 justify-center text-base md:text-lg text-white/75">
+        <div className="flex flex-wrap gap-6 justify-center text-base md:text-lg text-white/75" id="footer-contacts">
           {header.contact.email && (
             <a
               href={`mailto:${header.contact.email}`}
@@ -190,6 +192,16 @@ export default function Footer({ data }: FooterProps) {
               dongarium
             </a>
           )}
+        </div>
+
+        {/* 인터랙션 없이 보기 */}
+        <div className="mt-10 text-center">
+          <Link
+            to={`/resume/${lang}/print`}
+            className="text-white/40 text-sm hover:text-white/70 transition-colors underline underline-offset-4"
+          >
+            {ui.printLabel}
+          </Link>
         </div>
       </div>
     </footer>

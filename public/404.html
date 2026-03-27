@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 — Ajin's Resume</title>
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        min-height: 100vh;
+        background: #ff8709;
+        color: white;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        text-align: center;
+      }
+      .num {
+        font-size: clamp(6rem, 20vw, 12rem);
+        font-weight: 900;
+        line-height: 1;
+        letter-spacing: -0.05em;
+        opacity: 0.25;
+        user-select: none;
+      }
+      .msg {
+        font-size: clamp(1.1rem, 3vw, 1.5rem);
+        font-weight: 600;
+        margin-top: 1.5rem;
+        margin-bottom: 2.5rem;
+        opacity: 0.95;
+      }
+      .btns {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        max-width: 320px;
+      }
+      .btn {
+        display: block;
+        padding: 0.85rem 1.5rem;
+        border-radius: 0.75rem;
+        font-size: 0.95rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: opacity 0.2s, transform 0.15s;
+        text-decoration: none;
+      }
+      .btn:hover { opacity: 0.85; transform: scale(1.03); }
+      .btn-primary {
+        background: white;
+        color: #ff8709;
+        border: none;
+      }
+      .btn-secondary {
+        background: transparent;
+        color: white;
+        border: 2px solid rgba(255,255,255,0.6);
+      }
+      .btn-secondary:hover { border-color: white; }
+    </style>
+  </head>
+  <body>
+    <div class="num">404</div>
+    <p class="msg" id="msg"></p>
+    <div class="btns">
+      <button class="btn btn-primary" id="btn-print" onclick="goToPrint()"></button>
+      <button class="btn btn-secondary" id="btn-refresh" onclick="startRefresh()"></button>
+    </div>
+
+    <script>
+      var translations = {
+        ko: {
+          msg: '혹시 인터랙션이 잘 작용되지 않나요?',
+          print: '인터랙션 없이 보기',
+          refresh: '3초 후 새로고침 하기',
+          refreshing: '초 후 새로고침 됩니다...',
+        },
+        en: {
+          msg: 'Are the interactions not working well?',
+          print: 'View without interactions',
+          refresh: 'Refresh in 3 seconds',
+          refreshing: 's until refresh...',
+        },
+        ja: {
+          msg: 'インタラクションがうまく動作していませんか？',
+          print: 'インタラクションなしで見る',
+          refresh: '3秒後にリフレッシュする',
+          refreshing: '秒後にリフレッシュします...',
+        },
+      };
+
+      function detectLang() {
+        var m = window.location.pathname.match(/\/(ko|en|ja)(\/|$)/);
+        return m ? m[1] : 'ko';
+      }
+
+      var lang = detectLang();
+      var t = translations[lang];
+
+      document.getElementById('msg').textContent = t.msg;
+      document.getElementById('btn-print').textContent = t.print;
+      document.getElementById('btn-refresh').textContent = t.refresh;
+
+      function goToPrint() {
+        var printPath = '/my-resume/resume/' + lang + '/print';
+        sessionStorage.setItem('spa-redirect', printPath);
+        window.location.href = '/my-resume/';
+      }
+
+      var timer = null;
+      function startRefresh() {
+        if (timer) return;
+        var btn = document.getElementById('btn-refresh');
+        var count = 3;
+        btn.textContent = count + (lang === 'en' ? 's' : '초') + ' ' + t.refreshing;
+        btn.disabled = true;
+        btn.style.opacity = '0.5';
+        timer = setInterval(function() {
+          count--;
+          if (count <= 0) {
+            clearInterval(timer);
+            window.location.reload();
+          } else {
+            btn.textContent = count + (lang === 'en' ? 's' : '초') + ' ' + t.refreshing;
+          }
+        }, 1000);
+      }
+    </script>
+  </body>
+</html>

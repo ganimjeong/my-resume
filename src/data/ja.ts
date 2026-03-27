@@ -15,6 +15,7 @@ export const jaData: ResumeData = {
   },
   ui: {
     copied: 'コピーしました',
+    printLabel: 'インタラクションなしで見る',
   },
   about: {
     title: '自己紹介',

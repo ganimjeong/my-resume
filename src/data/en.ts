@@ -15,6 +15,7 @@ export const enData: ResumeData = {
   },
   ui: {
     copied: 'Copied!',
+    printLabel: 'View without interactions',
   },
   about: {
     title: 'About Me',

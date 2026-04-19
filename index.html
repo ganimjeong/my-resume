@@ -14,11 +14,16 @@
         }
       })();
     </script>
+    <style>
+      html, body, #root {
+        margin: 0;
+        min-height: 100vh;
+        background: linear-gradient(to bottom, #2563eb, #93c5fd);
+      }
+    </style>
   </head>
   <body>
-    <div id="root">
-        <p>서버구동확인용문구</p>
-    </div>
+    <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

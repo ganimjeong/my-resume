@@ -98,8 +98,16 @@ export default function ShapeOverlay({ mode, onComplete, play = false }: ShapeOv
           <stop offset="100%" stopColor="#2563eb" />
         </linearGradient>
       </defs>
-      <path ref={path2Ref} fill="url(#shapeGrad2)" />
-      <path ref={path1Ref} fill="url(#shapeGrad1)" />
+      <path
+        ref={path2Ref}
+        fill="url(#shapeGrad2)"
+        d={mode === 'out' ? 'M 0 100 L 100 100 L 100 0 L 0 0 Z' : ''}
+      />
+      <path
+        ref={path1Ref}
+        fill="url(#shapeGrad1)"
+        d={mode === 'out' ? 'M 0 100 L 100 100 L 100 0 L 0 0 Z' : ''}
+      />
     </svg>
   )
 }

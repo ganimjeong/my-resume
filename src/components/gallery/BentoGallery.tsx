@@ -5,7 +5,7 @@ import { Flip } from 'gsap/Flip'
 import './BentoGallery.css'
 import tallUsa from '@images/bentoGallery/tallbento-usa.png'
 import bentoCenter from '@images/bentoGallery/bento-center.png'
-import tallObj2 from '@images/bentoGallery/tallbento-obj2.png'
+import tallMensa from '@images/bentoGallery/tallbento-mensa.png'
 import bentoCenter1 from '@images/bentoGallery/bento-center-1.png'
 import bentoCal from '@images/bentoGallery/bento-cal.png'
 import bentoGraduate from '@images/bentoGallery/bento-graduate.png'
@@ -15,7 +15,7 @@ import bentoPrize from '@images/bentoGallery/bento-prize.png'
 gsap.registerPlugin(ScrollTrigger, Flip)
 
 // [1]tall col1  [2]normal  [3]centerTall  [4]tall col3  [5]normal  [6]tall col3 rows3-4  [7]normal  [8]normal
-const images = [tallUsa, bentoCal, bentoCenter, tallObj2, bentoGraduate, bentoPrize, bentoGranted, bentoCenter1]
+const images = [tallUsa, bentoCal, bentoCenter, tallMensa, bentoGraduate, bentoPrize, bentoGranted, bentoCenter1]
 
 export default function BentoGallery() {
   const wrapRef = useRef<HTMLDivElement>(null)
@@ -70,8 +70,8 @@ export default function BentoGallery() {
     <div className="gallery-wrap" ref={wrapRef}>
       <div className="gallery gallery--bento" ref={galleryRef}>
         {images.map((src, i) => (
-          <div className="gallery__item" key={i}>
-            <img src={src} alt="" />
+          <div className="gallery__item" key={i} aria-hidden="true">
+            <img src={src} alt="" role="presentation" />
           </div>
         ))}
       </div>

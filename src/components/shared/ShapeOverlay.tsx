@@ -81,10 +81,6 @@ export default function ShapeOverlay({ mode, onComplete, play = false }: ShapeOv
     }
   }, [mode])
 
-  const isVisible = mode === 'in' ? true : true // always render, opacity controlled by path
-
-  if (!isVisible) return null
-
   return (
     <svg
       className="fixed top-0 left-0 w-full h-full pointer-events-none"
@@ -94,12 +90,12 @@ export default function ShapeOverlay({ mode, onComplete, play = false }: ShapeOv
     >
       <defs>
         <linearGradient id="shapeGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="#ff8709" />
-          <stop offset="100%" stopColor="#f7bdf8" />
+          <stop offset="0%" stopColor="#2563eb" />
+          <stop offset="100%" stopColor="#93c5fd" />
         </linearGradient>
         <linearGradient id="shapeGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="#ffd9b0" />
-          <stop offset="100%" stopColor="#ff8709" />
+          <stop offset="0%" stopColor="#bfdbfe" />
+          <stop offset="100%" stopColor="#2563eb" />
         </linearGradient>
       </defs>
       <path ref={path2Ref} fill="url(#shapeGrad2)" />

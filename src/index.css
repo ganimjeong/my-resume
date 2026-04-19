@@ -22,3 +22,18 @@
     backface-visibility: hidden;
   }
 }
+
+@media print {
+  .gallery-wrap {
+    display: none !important;
+  }
+
+  section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  a[href]::after {
+    content: '';
+  }
+}

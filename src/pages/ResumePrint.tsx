@@ -1,9 +1,9 @@
-import { useRef } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { resumeData } from '@/data/index'
 import dongariLogo from '@images/projectSection/Dongari-um.png'
 import dLetter from '@images/projectSection/D.png'
 import myIcon from '@images/headerSection/myIcon.png'
+import { useCopyToast } from '@/hooks/useCopyToast'
 
 type Language = 'en' | 'ja' | 'ko'
 
@@ -12,25 +12,17 @@ export default function ResumePrint() {
   const currentLang = (lang as Language) || 'en'
   const data = resumeData[currentLang]
   const { header, about, skills, experience, awards, languages, projects } = data
-  const toastRef = useRef<HTMLDivElement>(null)
+  const { toastRef, copy } = useCopyToast()
 
-  const copyPhone = () => {
-    navigator.clipboard.writeText(header.contact.phone)
-    if (!toastRef.current) return
-    toastRef.current.style.opacity = '1'
-    setTimeout(() => {
-      if (toastRef.current) toastRef.current.style.opacity = '0'
-    }, 1200)
-  }
+  const copyPhone = () => copy(header.contact.phone)
 
   return (
     <div className="min-h-screen bg-white">
       {/* Toast */}
-      <div className="fixed inset-0 flex items-center justify-center pointer-events-none z-50">
+      <div className="fixed inset-0 flex items-center justify-center pointer-events-none z-50 print:hidden">
         <div
           ref={toastRef}
-          className="bg-gray-800/50 text-white text-sm px-6 py-3 rounded-xl transition-opacity duration-300"
-          style={{ opacity: 0 }}
+          className="bg-gray-800/50 text-white text-sm px-6 py-3 rounded-xl opacity-0"
         >
           {data.ui.copied}
         </div>

@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import type { ResumeData } from '@/data/types'
+import { useCopyToast } from '@/hooks/useCopyToast'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -17,8 +18,7 @@ export default function Footer({ data }: FooterProps) {
   const eyeSvgRef = useRef<SVGSVGElement>(null)
   const irisRef = useRef<SVGCircleElement>(null)
   const pupilRef = useRef<SVGCircleElement>(null)
-  const toastRef = useRef<HTMLDivElement>(null)
-  const tlRef = useRef<gsap.core.Timeline | null>(null)
+  const { toastRef, copy } = useCopyToast()
 
   // Curve swipe reveal: footer rises from below
   useEffect(() => {
@@ -71,24 +71,10 @@ export default function Footer({ data }: FooterProps) {
     return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [])
 
-  const copyPhone = () => {
-    navigator.clipboard.writeText(header.contact.phone)
-    if (tlRef.current) tlRef.current.kill()
-    const tl = gsap.timeline()
-    tlRef.current = tl
-    tl.fromTo(
-      toastRef.current,
-      { opacity: 0, scale: 0.85, y: 10 },
-      { opacity: 1, scale: 1, y: 0, duration: 0.3, ease: 'back.out(1.7)' }
-    ).to(
-      toastRef.current,
-      { opacity: 0, scale: 0.85, y: -10, duration: 0.3, ease: 'power2.in' },
-      '+=0.9'
-    )
-  }
+  const copyPhone = () => copy(header.contact.phone)
 
   return (
-    <footer ref={footerRef} className="relative bg-[#ff8709] text-white overflow-visible">
+    <footer ref={footerRef} className="relative bg-[#2563eb] text-white overflow-visible">
       {/* Toast */}
       <div className="fixed inset-0 flex items-center justify-center pointer-events-none z-50">
         <div
@@ -109,7 +95,7 @@ export default function Footer({ data }: FooterProps) {
           className="w-full h-full"
           preserveAspectRatio="none"
         >
-          <path d="M0,80 Q360,0 720,40 Q1080,80 1440,0 L1440,80 L0,80 Z" fill="#ff8709" />
+          <path d="M0,80 Q360,0 720,40 Q1080,80 1440,0 L1440,80 L0,80 Z" fill="#2563eb" />
         </svg>
       </div>
 
@@ -131,7 +117,7 @@ export default function Footer({ data }: FooterProps) {
             <path d="M6,50 Q100,4 194,50 Q100,96 6,50 Z" fill="white" />
             {/* Iris + Pupil + Highlight — clipped to eye shape */}
             <g clipPath="url(#eye-clip)">
-              <circle ref={irisRef} cx="100" cy="50" r="26" fill="#e06200" />
+              <circle ref={irisRef} cx="100" cy="50" r="26" fill="#1d4ed8" />
               <circle ref={pupilRef} cx="100" cy="50" r="14" fill="#1a0500" />
               <circle cx="111" cy="41" r="5.5" fill="white" opacity="0.85" />
             </g>

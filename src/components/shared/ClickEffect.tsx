@@ -10,7 +10,7 @@ const DOT_SIZE_MAX = 16
 const SPEED = 2.5
 const GRAVITY = 4
 
-const COLORS = ['#ff8709', '#ffd9b0', '#ffffff', '#ffb347', '#ff6a00']
+const COLORS = ['#2563eb', '#bfdbfe', '#ffffff', '#60a5fa', '#1e40af']
 
 export default function ClickEffect() {
   const containerRef = useRef<HTMLDivElement | null>(null)

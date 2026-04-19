@@ -6,6 +6,7 @@ import { SplitText } from 'gsap/SplitText'
 gsap.registerPlugin(ScrollTrigger, SplitText)
 import type { ResumeData } from '@/data/types'
 import myIcon from '@images/headerSection/myIcon.png'
+import { useCopyToast } from '@/hooks/useCopyToast'
 
 interface HeaderProps {
   data: ResumeData
@@ -13,10 +14,9 @@ interface HeaderProps {
 
 export default function Header({ data }: HeaderProps) {
   const { header, about } = data
-  const toastRef = useRef<HTMLDivElement>(null)
   const aboutRef = useRef<HTMLParagraphElement>(null)
-  const tlRef = useRef<gsap.core.Timeline | null>(null)
   const waveRef = useRef<HTMLSpanElement>(null)
+  const { toastRef, copy } = useCopyToast()
 
   const playWave = () => {
     const el = waveRef.current
@@ -83,24 +83,7 @@ export default function Header({ data }: HeaderProps) {
     return () => ctx.revert()
   }, [data])
 
-  const copyPhone = () => {
-    navigator.clipboard.writeText(header.contact.phone)
-
-    if (tlRef.current) tlRef.current.kill()
-
-    const tl = gsap.timeline()
-    tlRef.current = tl
-
-    tl.fromTo(
-      toastRef.current,
-      { opacity: 0, scale: 0.85, y: 10 },
-      { opacity: 1, scale: 1, y: 0, duration: 0.3, ease: 'back.out(1.7)' }
-    ).to(
-      toastRef.current,
-      { opacity: 0, scale: 0.85, y: -10, duration: 0.3, ease: 'power2.in' },
-      '+=0.9'
-    )
-  }
+  const copyPhone = () => copy(header.contact.phone)
 
   return (
     <header className="pt-20 pb-12 border-b border-gray-300">

@@ -44,22 +44,47 @@ export const jaData: ResumeData = {
         ],
       },
       {
-        name: 'バックエンド / インフラ',
-        items: ['Axios', 'Firebase', 'Supabase', 'MySQL', 'GitHub Pages', 'Nginx', 'AWS'],
+        name: 'バックエンド / AI',
+        items: [
+          'Python', 'OpenAI API', 'RAG', 'Claude Code / Antigravity',
+          'Whisper', 'Deepgram', 'MediaPipe', 'n8n', 'Streamlit',
+          'Axios', 'Firebase', 'Supabase', 'MySQL', 'Nginx', 'AWS', 'Railway', 'Vercel', 'GitHub Pages',
+        ],
       },
       {
-        name: '開発ツール',
-        items: ['Git', 'npm / yarn', 'ESLint', 'Prettier', 'Husky', 'Vitest', 'MSW'],
+        name: '開発ツール / コラボレーション',
+        items: [
+          'Git', 'npm / yarn', 'ESLint', 'Prettier', 'Husky', 'Vitest', 'MSW',
+          'Apify', 'Web Scraping / 自動化',
+          'GitHub Projects', 'Jira', 'Notion', 'Slack', 'Discord', 'Agile / Scrum',
+        ],
       },
       {
-        name: 'コラボレーション',
-        items: ['GitHub Projects', 'Jira', 'Notion', 'Slack', 'Discord', 'Agile / Scrum'],
+        name: 'デザイン / その他',
+        items: [
+          'Figma', 'Photoshop', 'Illustrator',
+          'Premiere Pro', 'Final Cut Pro', 'CapCut', 'VLLO',
+          'Logic Pro', 'Ableton Live',
+          'Unity', 'Unity XR',
+          'DJI Mavic Pro 2',
+        ],
       },
     ],
   },
   experience: {
     title: '経歴 / 活動経験',
     items: [
+      {
+        position: 'マーケティングチーム AI/自動化エンジニア',
+        company: 'ウェイクリップカンパニー (ショートファレンス)',
+        period: '2026.04 - ',
+        description: [
+          '社内業務自動化のためのAIサービスを複数設計・開発',
+          'STT AIプラットフォーム「リール台本抽出ツール」の企画・開発 (Apify · Whisper · Deepgram 活用)',
+          '外部開発会社ノバリンクとの協業を推進',
+          'マーケティングキャンペーン企画および映像コンテンツ制作を並行',
+        ],
+      },
       {
         position: '交換留学生 & 研究員',
         company: 'University of Missouri St. Louis',
@@ -146,6 +171,10 @@ export const jaData: ResumeData = {
         githubLink: 'https://github.com/kakao-tech-campus-3rd-step3/Team18_FE',
         siteLabel: 'サイトを見る',
         githubLabel: 'GitHubを見る',
+        stats: [
+          { value: 90000, label: 'GA ページビュー', suffix: '+' },
+          { value: 5, label: '運営ヶ月', suffix: 'mo' },
+        ],
       },
     ],
   },

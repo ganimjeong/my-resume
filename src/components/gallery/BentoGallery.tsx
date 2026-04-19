@@ -59,9 +59,19 @@ export default function BentoGallery() {
     }
 
     createTween()
-    window.addEventListener('resize', createTween)
+
+    let resizeTimer: number | null = null
+    const onResize = () => {
+      if (resizeTimer !== null) window.clearTimeout(resizeTimer)
+      resizeTimer = window.setTimeout(() => {
+        createTween()
+        ScrollTrigger.refresh()
+      }, 200)
+    }
+    window.addEventListener('resize', onResize)
     return () => {
-      window.removeEventListener('resize', createTween)
+      if (resizeTimer !== null) window.clearTimeout(resizeTimer)
+      window.removeEventListener('resize', onResize)
       flipCtxRef.current?.revert()
     }
   }, [])

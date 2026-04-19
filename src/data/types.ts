@@ -46,6 +46,11 @@ export interface ResumeData {
       githubLink?: string;
       siteLabel?: string;
       githubLabel?: string;
+      stats?: Array<{
+        value: number;
+        label: string;
+        suffix?: string;
+      }>;
     }>;
   };
   awards: {

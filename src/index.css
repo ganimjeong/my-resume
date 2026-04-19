@@ -37,3 +37,14 @@
     content: '';
   }
 }
+
+@media (hover: hover) and (pointer: fine) {
+  html.magnetic-active,
+  html.magnetic-active * {
+    cursor: none !important;
+  }
+
+  html.magnetic-active .magnetic-cursor {
+    display: block !important;
+  }
+}

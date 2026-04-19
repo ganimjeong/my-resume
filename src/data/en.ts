@@ -44,22 +44,47 @@ export const enData: ResumeData = {
         ],
       },
       {
-        name: 'Backend / Infra',
-        items: ['Axios', 'Firebase', 'Supabase', 'MySQL', 'GitHub Pages', 'Nginx', 'AWS'],
+        name: 'Backend / AI',
+        items: [
+          'Python', 'OpenAI API', 'RAG', 'Claude Code / Antigravity',
+          'Whisper', 'Deepgram', 'MediaPipe', 'n8n', 'Streamlit',
+          'Axios', 'Firebase', 'Supabase', 'MySQL', 'Nginx', 'AWS', 'Railway', 'Vercel', 'GitHub Pages',
+        ],
       },
       {
-        name: 'Dev Tools',
-        items: ['Git', 'npm / yarn', 'ESLint', 'Prettier', 'Husky', 'Vitest', 'MSW'],
+        name: 'Dev Tools / Collaboration',
+        items: [
+          'Git', 'npm / yarn', 'ESLint', 'Prettier', 'Husky', 'Vitest', 'MSW',
+          'Apify', 'Web Scraping / Automation',
+          'GitHub Projects', 'Jira', 'Notion', 'Slack', 'Discord', 'Agile / Scrum',
+        ],
       },
       {
-        name: 'Collaboration',
-        items: ['GitHub Projects', 'Jira', 'Notion', 'Slack', 'Discord', 'Agile / Scrum'],
+        name: 'Design / Other',
+        items: [
+          'Figma', 'Photoshop', 'Illustrator',
+          'Premiere Pro', 'Final Cut Pro', 'CapCut', 'VLLO',
+          'Logic Pro', 'Ableton Live',
+          'Unity', 'Unity XR',
+          'DJI Mavic Pro 2',
+        ],
       },
     ],
   },
   experience: {
     title: 'Experience & Activities',
     items: [
+      {
+        position: 'AI/Automation Developer (Marketing Team)',
+        company: 'Wayclip Company (Shortference)',
+        period: '2026.04 - ',
+        description: [
+          'Designed and developed multiple AI services to automate internal workflows',
+          'Planned and developed STT AI platform "Reels Transcript Extractor" (Apify · Whisper · Deepgram)',
+          'Collaborated with external development studio Novalink',
+          'Led marketing campaign planning and video content production alongside development work',
+        ],
+      },
       {
         position: 'Exchange Student & Researcher',
         company: 'University of Missouri St. Louis',
@@ -146,6 +171,10 @@ export const enData: ResumeData = {
         githubLink: 'https://github.com/kakao-tech-campus-3rd-step3/Team18_FE',
         siteLabel: 'Visit Site',
         githubLabel: 'View GitHub',
+        stats: [
+          { value: 90000, label: 'GA Page Views', suffix: '+' },
+          { value: 5, label: 'Months Live', suffix: 'mo' },
+        ],
       },
     ],
   },

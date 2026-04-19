@@ -17,11 +17,11 @@ export default function Projects({ data }: ProjectsProps) {
   const sectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      const section = sectionRef.current
-      if (!section) return
+    const section = sectionRef.current
+    if (!section) return
 
-      gsap.utils.toArray<HTMLImageElement>('.project-d').forEach((el) => {
+    const ctxSync = gsap.context(() => {
+      section.querySelectorAll<HTMLImageElement>('.project-d').forEach((el) => {
         gsap.fromTo(
           el,
           { rotation: -45 },
@@ -38,8 +38,51 @@ export default function Projects({ data }: ProjectsProps) {
         )
       })
 
-      document.fonts.ready.then(() => {
-        gsap.utils.toArray<HTMLParagraphElement>('.project-desc').forEach((el) => {
+      section.querySelectorAll<HTMLElement>('.stat-block').forEach((block) => {
+        const numEl = block.querySelector<HTMLElement>('.stat-num')
+        const barEl = block.querySelector<HTMLElement>('.stat-bar-fill')
+        if (!numEl) return
+
+        const target = Number(numEl.dataset.value || '0')
+        const counter = { v: 0 }
+
+        const tween = gsap.to(counter, {
+          v: target,
+          duration: 2,
+          ease: 'power2.out',
+          paused: true,
+          onUpdate() {
+            numEl.textContent = Math.round(counter.v).toLocaleString()
+          },
+        })
+
+        const bar = barEl
+          ? gsap.fromTo(
+              barEl,
+              { scaleX: 0 },
+              { scaleX: 1, duration: 2, ease: 'power2.out', paused: true }
+            )
+          : null
+
+        ScrollTrigger.create({
+          trigger: block,
+          start: 'top 85%',
+          once: true,
+          onEnter: () => {
+            tween.play()
+            bar?.play()
+          },
+        })
+      })
+    })
+
+    let ctxAsync: gsap.Context | null = null
+    let cancelled = false
+
+    document.fonts.ready.then(() => {
+      if (cancelled || !sectionRef.current) return
+      ctxAsync = gsap.context(() => {
+        sectionRef.current!.querySelectorAll<HTMLParagraphElement>('.project-desc').forEach((el) => {
           gsap.set(el, { opacity: 1 })
           SplitText.create(el, {
             type: 'words,lines',
@@ -61,9 +104,13 @@ export default function Projects({ data }: ProjectsProps) {
           })
         })
       })
-    }, sectionRef)
+    })
 
-    return () => ctx.revert()
+    return () => {
+      cancelled = true
+      ctxSync.revert()
+      ctxAsync?.revert()
+    }
   }, [data])
 
   return (
@@ -84,6 +131,34 @@ export default function Projects({ data }: ProjectsProps) {
             <p className="project-desc text-gray-700 text-base md:text-lg leading-relaxed" style={{ opacity: 0 }}>
               {project.description}
             </p>
+
+            {project.stats && project.stats.length > 0 && (
+              <div className="grid grid-cols-2 gap-4 md:gap-8 py-4 border-y border-gray-200">
+                {project.stats.map((stat, i) => (
+                  <div key={i} className="stat-block flex flex-col gap-2">
+                    <div className="flex items-baseline gap-1">
+                      <span
+                        className="stat-num text-3xl md:text-4xl font-bold text-blue-600 tabular-nums"
+                        data-value={stat.value}
+                      >
+                        0
+                      </span>
+                      {stat.suffix && (
+                        <span className="text-xl md:text-2xl font-bold text-blue-600">
+                          {stat.suffix}
+                        </span>
+                      )}
+                    </div>
+                    <span className="text-xs md:text-sm text-gray-500 uppercase tracking-wider">
+                      {stat.label}
+                    </span>
+                    <div className="h-0.5 bg-gray-100 rounded-full overflow-hidden">
+                      <div className="stat-bar-fill h-full bg-blue-600 origin-left" style={{ transform: 'scaleX(0)' }} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
 
             <div className="flex flex-wrap gap-3">
               {project.siteLink && (

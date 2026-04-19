@@ -44,22 +44,47 @@ export const koData: ResumeData = {
         ],
       },
       {
-        name: '백엔드 / 인프라',
-        items: ['Axios', 'Firebase', 'Supabase', 'MySQL', 'GitHub Pages', 'Nginx', 'AWS'],
+        name: '백엔드 / AI',
+        items: [
+          'Python', 'OpenAI API', 'RAG', 'Claude Code / Antigravity',
+          'Whisper', 'Deepgram', 'MediaPipe', 'n8n', 'Streamlit',
+          'Axios', 'Firebase', 'Supabase', 'MySQL', 'Nginx', 'AWS', 'Railway', 'Vercel', 'GitHub Pages',
+        ],
       },
       {
-        name: '개발 도구',
-        items: ['Git', 'npm / yarn', 'ESLint', 'Prettier', 'Husky', 'Vitest', 'MSW'],
+        name: '개발 도구 / 협업',
+        items: [
+          'Git', 'npm / yarn', 'ESLint', 'Prettier', 'Husky', 'Vitest', 'MSW',
+          'Apify', 'Web Scraping / 자동화',
+          'GitHub Projects', 'Jira', 'Notion', 'Slack', 'Discord', 'Agile / Scrum',
+        ],
       },
       {
-        name: '협업',
-        items: ['GitHub Projects', 'Jira', 'Notion', 'Slack', 'Discord', 'Agile / Scrum'],
+        name: '디자인 / 기타',
+        items: [
+          'Figma', 'Photoshop', 'Illustrator',
+          'Premiere Pro', 'Final Cut Pro', 'CapCut', 'VLLO',
+          'Logic Pro', 'Ableton Live',
+          'Unity', 'Unity XR',
+          'DJI Mavic Pro 2',
+        ],
       },
     ],
   },
   experience: {
     title: '경력 / 경험',
     items: [
+      {
+        position: '마케팅팀 AI/자동화 개발자',
+        company: '웨이클립 컴퍼니 (숏퍼런스)',
+        period: '2026.04 - ',
+        description: [
+          '사내 업무 자동화를 위한 AI 서비스 복수 설계 및 개발',
+          "STT AI 플랫폼 '릴스대본추출기' 기획·개발 (Apify · Whisper · Deepgram 활용)",
+          '외부 개발사 노바링크와 협업 진행',
+          '마케팅 캠페인 기획 및 영상 콘텐츠 제작 병행',
+        ],
+      },
       {
         position: '교환학생 & 연구원',
         company: 'University of Missouri St. Louis',
@@ -146,6 +171,10 @@ export const koData: ResumeData = {
         githubLink: 'https://github.com/kakao-tech-campus-3rd-step3/Team18_FE',
         siteLabel: '사이트 보기',
         githubLabel: 'GitHub 보기',
+        stats: [
+          { value: 90000, label: 'GA 페이지뷰', suffix: '+' },
+          { value: 5, label: '운영 개월', suffix: 'mo' },
+        ],
       },
     ],
   },

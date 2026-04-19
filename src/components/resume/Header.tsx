@@ -57,8 +57,12 @@ export default function Header({ data }: HeaderProps) {
     const el = aboutRef.current
     gsap.set(el, { opacity: 1 })
 
-    const ctx = gsap.context(() => {
-      document.fonts.ready.then(() => {
+    let ctx: gsap.Context | null = null
+    let cancelled = false
+
+    document.fonts.ready.then(() => {
+      if (cancelled || !aboutRef.current) return
+      ctx = gsap.context(() => {
         SplitText.create(el, {
           type: 'words,lines',
           mask: 'lines',
@@ -80,7 +84,10 @@ export default function Header({ data }: HeaderProps) {
       })
     })
 
-    return () => ctx.revert()
+    return () => {
+      cancelled = true
+      ctx?.revert()
+    }
   }, [data])
 
   const copyPhone = () => copy(header.contact.phone)

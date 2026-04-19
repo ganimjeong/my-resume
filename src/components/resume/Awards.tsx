@@ -16,7 +16,6 @@ const Awards = forwardRef<HTMLDivElement, AwardsProps>(function Awards({ data },
   const listRef = useRef<HTMLDivElement>(null)
   const itemsRef = useRef<(HTMLDivElement | null)[]>([])
 
-  // 트로피 스크롤 틸트 (-45 → 45)
   useEffect(() => {
     const ctx = gsap.context(() => {
       if (!trophyRef.current || !sectionRef.current) return
@@ -40,7 +39,6 @@ const Awards = forwardRef<HTMLDivElement, AwardsProps>(function Awards({ data },
     return () => ctx.revert()
   }, [])
 
-  // 리스트 아이템 애니메이션
   useEffect(() => {
     const ctx = gsap.context(() => {
       itemsRef.current.forEach((el) => {
@@ -79,7 +77,6 @@ const Awards = forwardRef<HTMLDivElement, AwardsProps>(function Awards({ data },
       <h2 className="text-2xl font-bold text-gray-900 mb-8">{awards.title}</h2>
 
       <div className="flex gap-12">
-        {/* 트로피 아이콘 */}
         <div className="hidden md:flex flex-shrink-0 w-48 h-48 lg:w-64 lg:h-64 items-center justify-center">
           <div
             ref={trophyRef}
@@ -92,7 +89,6 @@ const Awards = forwardRef<HTMLDivElement, AwardsProps>(function Awards({ data },
           </div>
         </div>
 
-        {/* 수상 목록 */}
         <div ref={listRef} className="flex-1 space-y-4">
           {awards.items.map((item, index) => (
             <div

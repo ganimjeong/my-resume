@@ -13,6 +13,7 @@ import Footer from '@/components/resume/Footer'
 import { resumeData } from '@/data/index'
 import ShapeOverlay from '@/components/shared/ShapeOverlay'
 import ClickEffect from '@/components/shared/ClickEffect'
+import MagneticCursor from '@/components/shared/MagneticCursor'
 import BentoGallery from '@/components/gallery/BentoGallery'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -45,6 +46,7 @@ export default function Resume() {
     <div className="min-h-screen bg-white overflow-x-hidden">
       <ShapeOverlay mode="out" />
       <ClickEffect />
+      <MagneticCursor />
       <BentoGallery />
       <div className="mx-auto max-w-2xl md:max-w-3xl lg:max-w-5xl px-6">
         <Header data={data} />

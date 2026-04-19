@@ -97,20 +97,20 @@
         ko: {
           msg: '혹시 인터랙션이 잘 작용되지 않나요?',
           print: '인터랙션 없이 보기',
-          refresh: '3초 후 새로고침 하기',
-          refreshing: '{n}초 후 새로고침 됩니다...',
+          refresh: '3초 후 다시 시도',
+          refreshing: '{n}초 후 다시 시도합니다...',
         },
         en: {
           msg: 'Are the interactions not working well?',
           print: 'View without interactions',
-          refresh: 'Refresh in 3 seconds',
-          refreshing: '{n}s until refresh...',
+          refresh: 'Retry in 3 seconds',
+          refreshing: 'Retrying in {n}s...',
         },
         ja: {
           msg: 'インタラクションがうまく動作していませんか？',
           print: 'インタラクションなしで見る',
-          refresh: '3秒後にリフレッシュする',
-          refreshing: '{n}秒後にリフレッシュします...',
+          refresh: '3秒後に再試行する',
+          refreshing: '{n}秒後に再試行します...',
         },
       };
 
@@ -144,11 +144,29 @@
           count--;
           if (count <= 0) {
             clearInterval(timer);
-            window.location.reload();
+            smartRedirect();
           } else {
             btn.textContent = t.refreshing.replace('{n}', count);
           }
         }, 1000);
+      }
+
+      function smartRedirect() {
+        var path = window.location.pathname;
+        var base = '/my-resume/';
+        var validPatterns = [
+          /^\/my-resume\/?$/,
+          /^\/my-resume\/resume\/(ko|en|ja)\/?$/,
+          /^\/my-resume\/resume\/(ko|en|ja)\/print\/?$/,
+        ];
+        var isSpaRoute = validPatterns.some(function (p) { return p.test(path); });
+        if (isSpaRoute) {
+          var full = path + window.location.search + window.location.hash;
+          if (full !== base) {
+            sessionStorage.setItem('spa-redirect', full);
+          }
+        }
+        window.location.replace(base);
       }
     </script>
   </body>

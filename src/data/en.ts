@@ -86,6 +86,18 @@ export const enData: ResumeData = {
         ],
       },
       {
+        position: 'Frontend Development',
+        company: 'Kakao Tech Campus',
+        period: '2025.04 - 2025.11 (approx. 8 months)',
+        description: [
+          'Selected for Frontend Development track',
+          'Completed 150+ advanced JavaScript and React lectures (Git, CI/CD, AWS, Figma, UI/UX included)',
+          'Conducted clone coding projects with weekly code reviews from industry professionals',
+          "Participated in development of 'Dongari-um', an integrated platform for university clubs",
+          'Deployed service after November graduation — reached 90,000 page views as of March 2026 (GA)',
+        ],
+      },
+      {
         position: 'Exchange Student & Researcher',
         company: 'University of Missouri St. Louis',
         period: '2024.08 - 2025.01 (6 months) | Missouri, USA',
@@ -146,18 +158,6 @@ export const enData: ResumeData = {
           'Organized booths for historical events and campus festivals',
         ],
       },
-      {
-        position: 'Frontend Development Graduate',
-        company: 'Kakao Tech Campus',
-        period: '2025.04 - 2025.11 (approx. 8 months)',
-        description: [
-          'Selected for Frontend Development track',
-          'Completed 150+ advanced JavaScript and React lectures (Git, CI/CD, AWS, Figma, UI/UX included)',
-          'Conducted clone coding projects with weekly code reviews from industry professionals',
-          "Participated in development of 'Dongari-um', an integrated platform for university clubs",
-          'Deployed service after November graduation — reached 90,000 page views as of March 2026 (GA)',
-        ],
-      },
     ],
   },
   projects: {
@@ -200,11 +200,12 @@ export const enData: ResumeData = {
     ],
   },
   languages: {
-    title: '💬 Languages',
+    title: 'Languages',
     items: [
       {
         name: '🌐 Korean',
         level: '⭐⭐⭐⭐⭐',
+        percent: 100,
         description: [
           'Native speaker',
           'Volunteer Korean language instructor for American high school students',
@@ -217,6 +218,7 @@ export const enData: ResumeData = {
       {
         name: '🌐 Japanese',
         level: '⭐⭐⭐⭐',
+        percent: 93,
         description: [
           '(Former) Primary major',
           '(Current) Minor',
@@ -230,6 +232,7 @@ export const enData: ResumeData = {
       {
         name: '🌐 English',
         level: '⭐⭐⭐⭐',
+        percent: 90,
         description: [
           'U.S. residence in 2008',
           '2024 Exchange student: Computer Science major at University of Missouri',
@@ -242,6 +245,7 @@ export const enData: ResumeData = {
       {
         name: '🌐 Chinese',
         level: '⭐⭐',
+        percent: 35,
         description: [
           'Confucius Institute (Chinese language institute)',
           'Short-term language study in China',
@@ -250,11 +254,16 @@ export const enData: ResumeData = {
         ],
       },
       {
-        name: '🌐 Spanish',
+        name: '🌐 Learning',
         level: '⭐',
+        sublanguages: [
+          { name: 'Spanish', percent: 10 },
+          { name: 'Russian', percent: 7 },
+        ],
         description: [
           'Spanish course at University of Missouri',
           'Living experience with Peruvian students (U.S. exchange)',
+          'Self-studying Russian',
         ],
       },
     ],

@@ -65,6 +65,8 @@ export interface ResumeData {
     items: Array<{
       name: string;
       level: string;
+      percent?: number;
+      sublanguages?: Array<{ name: string; percent: number }>;
       description: string[];
     }>;
   };

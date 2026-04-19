@@ -86,6 +86,18 @@ export const koData: ResumeData = {
         ],
       },
       {
+        position: '프론트엔드 개발 수료',
+        company: '카카오 테크 캠퍼스',
+        period: '2025.04 - 2025.11 (약 8개월)',
+        description: [
+          '프론트엔드 파트 선발',
+          'JavaScript, React 심화 강의 150개 분량 수료 (Git, CI/CD, AWS, Figma, UI/UX 포함)',
+          '클론 코딩 프로젝트 진행 및 현직 개발자 주간 코드 리뷰 수행',
+          "대학 동아리 지원 통합 플랫폼 '동아리움(dongari-um)' 개발 참여",
+          '11월 수료 후 실제 서비스 배포 — 2026.03 GA 기준 페이지뷰 9만 돌파',
+        ],
+      },
+      {
         position: '교환학생 & 연구원',
         company: 'University of Missouri St. Louis',
         period: '2024.08 - 2025.01 (6개월) | 미국 미주리주',
@@ -146,18 +158,6 @@ export const koData: ResumeData = {
           '역사 행사 및 축제 부스 기획 운영',
         ],
       },
-      {
-        position: '프론트엔드 개발 수료생',
-        company: '카카오 테크 캠퍼스',
-        period: '2025.04 - 2025.11 (약 8개월)',
-        description: [
-          '프론트엔드 파트 선발',
-          'JavaScript, React 심화 강의 150개 분량 수료 (Git, CI/CD, AWS, Figma, UI/UX 포함)',
-          '클론 코딩 프로젝트 진행 및 현직 개발자 주간 코드 리뷰 수행',
-          "대학 동아리 지원 통합 플랫폼 '동아리움(dongari-um)' 개발 참여",
-          '11월 수료 후 실제 서비스 배포 — 2026.03 GA 기준 페이지뷰 9만 돌파',
-        ],
-      },
     ],
   },
   projects: {
@@ -200,11 +200,12 @@ export const koData: ResumeData = {
     ],
   },
   languages: {
-    title: '💬 Languages',
+    title: 'Languages',
     items: [
       {
         name: '🌐 Korean',
         level: '⭐⭐⭐⭐⭐',
+        percent: 100,
         description: [
           '모국어',
           '미국 고등학생 대상 한국어 교육봉사',
@@ -217,6 +218,7 @@ export const koData: ResumeData = {
       {
         name: '🌐 Japanese',
         level: '⭐⭐⭐⭐',
+        percent: 93,
         description: [
           '(전) 주전공',
           '(현) 부전공',
@@ -230,6 +232,7 @@ export const koData: ResumeData = {
       {
         name: '🌐 English',
         level: '⭐⭐⭐⭐',
+        percent: 90,
         description: [
           '2008년 미국 거주',
           '2024년 교환학생 : 미주리대학교 컴퓨터사이언스 전공 교환학생',
@@ -242,6 +245,7 @@ export const koData: ResumeData = {
       {
         name: '🌐 Chinese',
         level: '⭐⭐',
+        percent: 35,
         description: [
           '공자학원 (중국어학원)',
           '중국 단기어학연수',
@@ -250,11 +254,16 @@ export const koData: ResumeData = {
         ],
       },
       {
-        name: '🌐 Spanish',
+        name: '🌐 Learning',
         level: '⭐',
+        sublanguages: [
+          { name: 'Spanish', percent: 10 },
+          { name: 'Russian', percent: 7 },
+        ],
         description: [
           '미주리 대학에서 스페인어 교양 수강',
           '페루인과 거주 경험 (미국 교환)',
+          '러시아어 독학 진행 중',
         ],
       },
     ],

@@ -159,9 +159,17 @@ export default function ResumePrint() {
             <div className="space-y-6">
               {languages.items.map((lang, i) => (
                 <div key={i} className="border border-gray-200 rounded-lg p-4">
-                  <div className="flex items-center gap-3 mb-3">
+                  <div className="flex items-center gap-3 mb-3 flex-wrap">
                     <h3 className="text-lg font-semibold text-gray-900">{lang.name}</h3>
-                    <span className="text-yellow-500">{lang.level}</span>
+                    {lang.sublanguages ? (
+                      <span className="text-sm text-gray-600">
+                        {lang.sublanguages.map((s) => `${s.name} ${s.percent}%`).join(' · ')}
+                      </span>
+                    ) : typeof lang.percent === 'number' ? (
+                      <span className="text-sm font-semibold text-blue-600">{lang.percent}%</span>
+                    ) : (
+                      <span className="text-yellow-500">{lang.level}</span>
+                    )}
                   </div>
                   <ul className="space-y-1 text-gray-700 text-sm md:text-base">
                     {lang.description.map((item, j) => (

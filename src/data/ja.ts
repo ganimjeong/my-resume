@@ -86,6 +86,18 @@ export const jaData: ResumeData = {
         ],
       },
       {
+        position: 'フロントエンド開発修了',
+        company: 'Kakao Tech Campus',
+        period: '2025.04 - 2025.11 (約8ヶ月)',
+        description: [
+          'フロントエンドパート選抜',
+          'JavaScript、React深化講義150個分量修了（Git、CI/CD、AWS、Figma、UI/UX含む）',
+          'クローンコーディングプロジェクト進行及び現職開発者週間コードレビュー遂行',
+          '大学同好会支援統合プラットフォーム「Dongari-um」開発参加',
+          '11月修了後、実際のサービスデプロイ — 2026.03 GA基準ページビュー9万突破',
+        ],
+      },
+      {
         position: '交換留学生 & 研究員',
         company: 'University of Missouri St. Louis',
         period: '2024.08 - 2025.01 (6ヶ月) | アメリカ ミズーリ州',
@@ -146,18 +158,6 @@ export const jaData: ResumeData = {
           '歴史行事及び祭りブース企画運営',
         ],
       },
-      {
-        position: 'フロントエンド開発修了生',
-        company: 'Kakao Tech Campus',
-        period: '2025.04 - 2025.11 (約8ヶ月)',
-        description: [
-          'フロントエンドパート選抜',
-          'JavaScript、React深化講義150個分量修了（Git、CI/CD、AWS、Figma、UI/UX含む）',
-          'クローンコーディングプロジェクト進行及び現職開発者週間コードレビュー遂行',
-          '大学同好会支援統合プラットフォーム「Dongari-um」開発参加',
-          '11月修了後、実際のサービスデプロイ — 2026.03 GA基準ページビュー9万突破',
-        ],
-      },
     ],
   },
   projects: {
@@ -200,11 +200,12 @@ export const jaData: ResumeData = {
     ],
   },
   languages: {
-    title: '💬 Languages',
+    title: 'Languages',
     items: [
       {
         name: '🌐 Korean',
         level: '⭐⭐⭐⭐⭐',
+        percent: 100,
         description: [
           '母国語',
           'アメリカ高校生対象の韓国語教育ボランティア',
@@ -217,6 +218,7 @@ export const jaData: ResumeData = {
       {
         name: '🌐 Japanese',
         level: '⭐⭐⭐⭐',
+        percent: 93,
         description: [
           '(前)主専攻',
           '(現)副専攻',
@@ -230,6 +232,7 @@ export const jaData: ResumeData = {
       {
         name: '🌐 English',
         level: '⭐⭐⭐⭐',
+        percent: 90,
         description: [
           '2008年アメリカ居住',
           '2024年交換留学:ミズーリ大学コンピュータサイエンス専攻交換留学生',
@@ -242,6 +245,7 @@ export const jaData: ResumeData = {
       {
         name: '🌐 Chinese',
         level: '⭐⭐',
+        percent: 35,
         description: [
           '孔子学院(中国語学院)',
           '中国短期語学研修',
@@ -250,11 +254,16 @@ export const jaData: ResumeData = {
         ],
       },
       {
-        name: '🌐 Spanish',
+        name: '🌐 Learning',
         level: '⭐',
+        sublanguages: [
+          { name: 'Spanish', percent: 10 },
+          { name: 'Russian', percent: 7 },
+        ],
         description: [
           'ミズーリ大学でスペイン語教養科目受講',
           'ペルー人学生との居住経験(アメリカ交換留学)',
+          'ロシア語を独学中',
         ],
       },
     ],

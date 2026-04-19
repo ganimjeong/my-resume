@@ -4,6 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>404 — Ajin's Resume</title>
+    <script>
+      // Valid SPA route patterns → auto-redirect preserving the path (spa-github-pages trick)
+      (function () {
+        var base = '/my-resume/';
+        var path = window.location.pathname;
+        var validPatterns = [
+          /^\/my-resume\/?$/,
+          /^\/my-resume\/resume\/(ko|en|ja)\/?$/,
+          /^\/my-resume\/resume\/(ko|en|ja)\/print\/?$/,
+        ];
+        var isSpaRoute = validPatterns.some(function (p) { return p.test(path); });
+        if (isSpaRoute) {
+          var full = path + window.location.search + window.location.hash;
+          if (full !== base) {
+            sessionStorage.setItem('spa-redirect', full);
+          }
+          window.location.replace(base);
+        }
+      })();
+    </script>
     <style>
       *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
       body {
@@ -78,19 +98,19 @@
           msg: '혹시 인터랙션이 잘 작용되지 않나요?',
           print: '인터랙션 없이 보기',
           refresh: '3초 후 새로고침 하기',
-          refreshing: '초 후 새로고침 됩니다...',
+          refreshing: '{n}초 후 새로고침 됩니다...',
         },
         en: {
           msg: 'Are the interactions not working well?',
           print: 'View without interactions',
           refresh: 'Refresh in 3 seconds',
-          refreshing: 's until refresh...',
+          refreshing: '{n}s until refresh...',
         },
         ja: {
           msg: 'インタラクションがうまく動作していませんか？',
           print: 'インタラクションなしで見る',
           refresh: '3秒後にリフレッシュする',
-          refreshing: '秒後にリフレッシュします...',
+          refreshing: '{n}秒後にリフレッシュします...',
         },
       };
 
@@ -117,7 +137,7 @@
         if (timer) return;
         var btn = document.getElementById('btn-refresh');
         var count = 3;
-        btn.textContent = count + (lang === 'en' ? 's' : '초') + ' ' + t.refreshing;
+        btn.textContent = t.refreshing.replace('{n}', count);
         btn.disabled = true;
         btn.style.opacity = '0.5';
         timer = setInterval(function() {
@@ -126,7 +146,7 @@
             clearInterval(timer);
             window.location.reload();
           } else {
-            btn.textContent = count + (lang === 'en' ? 's' : '초') + ' ' + t.refreshing;
+            btn.textContent = t.refreshing.replace('{n}', count);
           }
         }, 1000);
       }

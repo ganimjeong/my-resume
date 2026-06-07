@@ -1,7 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
 import { resumeData } from '@/data/index'
-import dongariLogo from '@images/projectSection/Dongari-um.png'
-import dLetter from '@images/projectSection/D.png'
+import { projectShowcase } from '@/data/projectShowcase'
 import myIcon from '@images/headerSection/myIcon.png'
 import { useCopyToast } from '@/hooks/useCopyToast'
 
@@ -11,7 +10,8 @@ export default function ResumePrint() {
   const { lang } = useParams<{ lang: Language }>()
   const currentLang = (lang as Language) || 'en'
   const data = resumeData[currentLang]
-  const { header, about, skills, experience, awards, languages, projects } = data
+  const { header, about, skills, experience, awards, languages } = data
+  const showcase = projectShowcase[currentLang] ?? projectShowcase.en
   const { toastRef, copy } = useCopyToast()
 
   const copyPhone = () => copy(header.contact.phone)
@@ -184,34 +184,54 @@ export default function ResumePrint() {
             </div>
           </section>
 
-          {/* Projects */}
+          {/* Projects — 인쇄용: 작은 썸네일 + 설명 나열 (버튼/갤러리 생략) */}
           <section className="py-16">
-            <h2 className="text-2xl font-bold text-gray-900 mb-10">{projects.title}</h2>
-            {projects.items.map((project, i) => (
-              <div key={i} className="flex items-center gap-8 md:gap-16">
-                <div className="flex-1 flex flex-col gap-4">
-                <img src={dongariLogo} alt={project.name} className="h-16 w-auto object-contain" />
-                <p className="text-gray-700 text-base md:text-lg leading-relaxed">{project.description}</p>
-                <div className="flex flex-wrap gap-3">
-                  {project.siteLink && (
-                    <a href={project.siteLink} target="_blank" rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-900 text-white rounded-lg text-sm font-medium hover:bg-gray-700 transition-colors">
-                      {project.siteLabel}
-                    </a>
-                  )}
-                  {project.githubLink && (
-                    <a href={project.githubLink} target="_blank" rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 border border-gray-900 text-gray-900 rounded-lg text-sm font-medium hover:bg-gray-100 transition-colors">
-                      {project.githubLabel}
-                    </a>
-                  )}
-                </div>
-                </div>
-                <div className="hidden md:flex items-center justify-center w-48 lg:w-64 flex-shrink-0">
-                  <img src={dLetter} alt="D" className="w-full h-auto select-none" />
-                </div>
-              </div>
-            ))}
+            <h2 className="text-2xl font-bold text-gray-900 mb-10">{showcase.pageTitle}</h2>
+            <div className="space-y-8">
+              {showcase.projects.map((p) => {
+                const thumb = p.thumbnail ?? p.images[0]?.src
+                const contain = p.thumbnailFit === 'contain'
+                return (
+                  <div key={p.slug} className="flex gap-5 break-inside-avoid">
+                    {thumb && (
+                      <div className="hidden sm:flex flex-shrink-0 w-28 h-20 items-center justify-center overflow-hidden rounded-lg border border-gray-200 bg-gray-50">
+                        <img
+                          src={`${import.meta.env.BASE_URL}${thumb}`}
+                          alt={p.name}
+                          className={`w-full h-full ${contain ? 'object-contain p-1' : 'object-cover'}`}
+                        />
+                      </div>
+                    )}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-baseline gap-2 flex-wrap">
+                        <h3 className="text-lg font-bold text-gray-900">{p.name}</h3>
+                        {p.status && <span className="text-xs text-gray-400">{p.status}</span>}
+                      </div>
+                      <p className="text-sm text-gray-500 mb-1">{p.role} · {p.period}</p>
+                      <p className="text-gray-800 text-sm md:text-base font-medium leading-snug mb-2">{p.tagline}</p>
+                      <p className="text-gray-600 text-sm leading-relaxed mb-2">{p.summary.join(' ')}</p>
+                      {p.stats.length > 0 && (
+                        <p className="text-sm text-gray-700 mb-1">
+                          {p.stats.map((s) => `${s.value} ${s.label}`).join('  ·  ')}
+                        </p>
+                      )}
+                      {p.channels && p.channels.length > 0 && (
+                        <p className="text-sm text-gray-600 mb-1">
+                          <span className="text-gray-400">{showcase.labels.channels}: </span>
+                          {p.channels.map((c) => `${c.handle} ${c.followers}`).join('  ·  ')}
+                        </p>
+                      )}
+                      <p className="text-xs text-gray-400">{p.techStack.join(' · ')}</p>
+                      {p.links.length > 0 && (
+                        <p className="text-xs text-gray-500 mt-1">
+                          {p.links.map((l) => l.url.replace(/^https?:\/\//, '').replace(/\/$/, '')).join('  ·  ')}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
           </section>
 
         </main>

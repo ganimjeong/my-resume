@@ -194,7 +194,7 @@ export default function ResumePrint() {
                 return (
                   <div key={p.slug} className="flex gap-5 break-inside-avoid">
                     {thumb && (
-                      <div className="hidden sm:flex flex-shrink-0 w-28 h-20 items-center justify-center overflow-hidden rounded-lg border border-gray-200 bg-gray-50">
+                      <div className="hidden sm:flex flex-shrink-0 w-40 h-28 items-center justify-center overflow-hidden rounded-lg border border-gray-200 bg-gray-50">
                         <img
                           src={`${import.meta.env.BASE_URL}${thumb}`}
                           alt={p.name}

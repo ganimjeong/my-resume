@@ -13,6 +13,8 @@
           /^\/my-resume\/?$/,
           /^\/my-resume\/resume\/(ko|en|ja)\/?$/,
           /^\/my-resume\/resume\/(ko|en|ja)\/print\/?$/,
+          /^\/my-resume\/resume\/(ko|en|ja)\/projects\/?$/,
+          /^\/my-resume\/resume\/(ko|en|ja)\/projects\/[a-z0-9-]+\/?$/,
         ];
         var isSpaRoute = validPatterns.some(function (p) { return p.test(path); });
         if (isSpaRoute) {
@@ -158,6 +160,8 @@
           /^\/my-resume\/?$/,
           /^\/my-resume\/resume\/(ko|en|ja)\/?$/,
           /^\/my-resume\/resume\/(ko|en|ja)\/print\/?$/,
+          /^\/my-resume\/resume\/(ko|en|ja)\/projects\/?$/,
+          /^\/my-resume\/resume\/(ko|en|ja)\/projects\/[a-z0-9-]+\/?$/,
         ];
         var isSpaRoute = validPatterns.some(function (p) { return p.test(path); });
         if (isSpaRoute) {

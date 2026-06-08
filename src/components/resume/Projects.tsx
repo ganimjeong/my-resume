@@ -1,8 +1,10 @@
 import { useEffect, useRef } from 'react'
+import { Link, useParams } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { SplitText } from 'gsap/SplitText'
 import type { ResumeData } from '@/data/types'
+import { projectShowcase, type Language } from '@/data/projectShowcase'
 import dongariLogo from '@images/projectSection/Dongari-um.png'
 import dLetter from '@images/projectSection/D.png'
 
@@ -14,6 +16,9 @@ interface ProjectsProps {
 
 export default function Projects({ data }: ProjectsProps) {
   const { projects } = data
+  const { lang } = useParams<{ lang: Language }>()
+  const currentLang = (lang as Language) || 'en'
+  const moreLabel = (projectShowcase[currentLang] ?? projectShowcase.en).moreLabel
   const sectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -200,6 +205,25 @@ export default function Projects({ data }: ProjectsProps) {
           </div>
         </div>
       ))}
+
+      <div className="mt-14 flex justify-center">
+        <Link
+          to={`/resume/${currentLang}/projects`}
+          className="group relative inline-flex items-center gap-3 rounded-full bg-gray-900 px-9 py-4 text-base font-semibold text-white shadow-lg shadow-gray-900/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-black hover:shadow-xl hover:shadow-gray-900/30"
+        >
+          {moreLabel}
+          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/15 transition-colors group-hover:bg-white/25">
+            <svg
+              className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </span>
+        </Link>
+      </div>
     </section>
   )
 }

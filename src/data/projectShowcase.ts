@@ -16,6 +16,8 @@ export interface ShowcaseStat {
   /** 보여줄 값 (예: "90,000+", "5") */
   value: string;
   label: string;
+  /** 값 앞에 표시할 아이콘. GitHub 스타/포크처럼 한눈에 구분되도록. */
+  icon?: 'star' | 'fork';
 }
 
 export interface ShowcaseFeature {
@@ -272,15 +274,16 @@ const koProjects: ShowcaseProject[] = [
   {
     slug: 'hyperframes-automation',
     name: '숏폼/롱폼 제작 자동화 파이프라인',
-    tagline: '대본·음원만 넣으면 자막·내레이션·영상이 완성 — 직접 일본 인스타 계정 46만 팔로워로 검증',
+    tagline: '대본·음원만 넣으면 자막·내레이션·영상이 완성 — 직접 일본 인스타 계정 약 52만 팔로워로 검증',
     period: '2025.05 ~ 현재',
     role: '기획 · AI · 자동화 개발',
     summary: [
       'HyperFrames(HTML 기반 영상 합성)를 활용해 숏폼·롱폼 영상 제작을 통째로 자동화한 파이프라인입니다. 음원이나 대본을 입력하면 전사·번역·자막·내레이션·배경영상 합성·렌더링까지 사람 손을 거의 거치지 않고 완성됩니다. 이 시스템을 콘텐츠 마케팅 회사 웨이클립에 납품했습니다.',
-      '만든 도구를 직접 운영해 검증했습니다. 일본어 인스타그램 계정 5개를 이 파이프라인으로 운영하며 합산 팔로워 46만 명 이상을 모았습니다. 기술과 콘텐츠 마케팅 역량을 함께 증명한 프로젝트입니다.',
+      '만든 도구를 직접 운영해 검증했습니다. 일본어 인스타그램 계정 5개를 이 파이프라인으로 운영하며 합산 팔로워 약 52만 명을 모았고, 채널당 단 9개의 영상만으로 누적 3억 조회수를 달성했습니다. 기술과 콘텐츠 마케팅 역량을 함께 증명한 프로젝트입니다.',
     ],
     stats: [
-      { value: '463,000+', label: '운영 계정 합산 팔로워' },
+      { value: '526,000+', label: '운영 계정 합산 팔로워' },
+      { value: '3억 뷰', label: '채널당 9개 영상으로 달성' },
       { value: '5개', label: '자동 운영 인스타 계정' },
       { value: '웨이클립 납품', label: '실제 상용 도입' },
     ],
@@ -294,11 +297,11 @@ const koProjects: ShowcaseProject[] = [
     images: HYPERFRAMES_IMAGES_KO,
     thumbnailFit: 'contain',
     channels: [
-      { handle: '@goodvibesongs.mp3', followers: '19.2만', note: '감성 음악' },
-      { handle: '@goodmovies_reko', followers: '9.1만', note: '영화 추천' },
-      { handle: '@readyaction_movies', followers: '8만', note: '영화' },
-      { handle: '@thishiphop.ply', followers: '7.7만', note: '힙합 음악' },
-      { handle: '@space_lab.note', followers: '2.3만', note: '우주·과학' },
+      { handle: '@goodvibesongs.mp3', followers: '21.4만', note: '감성 음악' },
+      { handle: '@goodmovies_reko', followers: '9.9만', note: '영화 추천' },
+      { handle: '@readyaction_movies', followers: '9.8만', note: '영화' },
+      { handle: '@thishiphop.ply', followers: '8.8만', note: '힙합 음악' },
+      { handle: '@space_lab.note', followers: '2.5만', note: '우주·과학' },
     ],
     status: '비공개 · 웨이클립 납품',
     accent: '#7c3aed',
@@ -311,16 +314,16 @@ const koProjects: ShowcaseProject[] = [
     role: '설계 · 오픈소스 메인테이너',
     summary: [
       '하네스(harness)는 AI 코딩 에이전트가 새 프로젝트에서도 헤매지 않도록, 규칙·자동화 스크립트·에이전트 설정을 미리 갖춰 둔 템플릿 저장소입니다. Claude Code용(Harness-for-claude)과 Codex 등 범용(Harness-for-codex) 두 가지로 만들었습니다.',
-      '개인 오픈소스로서는 이례적으로 두 저장소 합산 62개의 스타와 22개의 포크를 받으며, 에이전트 기반 개발 워크플로의 참고 구현으로 자리잡았습니다.',
+      '개인 오픈소스로서는 이례적으로 두 저장소 합산 67개의 스타와 22개의 포크를 받으며, 에이전트 기반 개발 워크플로의 참고 구현으로 자리잡았습니다.',
     ],
     stats: [
-      { value: '62', label: '합산 GitHub 스타' },
-      { value: '22', label: '합산 포크' },
+      { value: '67', label: '합산 GitHub 스타', icon: 'star' },
+      { value: '22', label: '합산 포크', icon: 'fork' },
       { value: '2', label: '오픈소스 저장소' },
     ],
     features: [
-      { title: 'Harness-for-claude', desc: 'Claude Code에 특화 — 세션 컨텍스트 로더, 검증 훅, 강화된 권한 모델. ★30 · ⑂13' },
-      { title: 'Harness-for-codex', desc: 'AGENTS.md 규격으로 Codex·Cursor·Aider까지 폭넓게 호환. ★32 · ⑂9' },
+      { title: 'Harness-for-claude', desc: 'Claude Code에 특화 — 세션 컨텍스트 로더, 검증 훅, 강화된 권한 모델. ★32 · ⑂13' },
+      { title: 'Harness-for-codex', desc: 'AGENTS.md 규격으로 Codex·Cursor·Aider까지 폭넓게 호환. ★35 · ⑂9' },
       { title: '언어 무관 자동화', desc: 'Node·Python·Rust 스택을 자동 감지하는 bootstrap·check·test 스크립트를 공통 제공합니다.' },
     ],
     techStack: ['Shell', 'GitHub Actions', 'Claude Code', 'OpenAI Codex', 'AGENTS.md', 'Docker'],
@@ -421,15 +424,16 @@ const enProjects: ShowcaseProject[] = [
   {
     slug: 'hyperframes-automation',
     name: 'Short-form / Long-form Production Automation Pipeline',
-    tagline: 'Feed it a script or track, get captions, narration, and video — proven on Japanese IG accounts with 460K+ followers',
+    tagline: 'Feed it a script or track, get captions, narration, and video — proven on Japanese IG accounts with ~520K followers',
     period: 'May 2025 – Present',
     role: 'Product · AI · Automation Development',
     summary: [
       'A pipeline that fully automates short- and long-form video production using HyperFrames (HTML-based video composition). Feed it a track or script and it handles transcription, translation, captioning, narration, background-footage compositing, and rendering with almost no manual work. I delivered this system to the content-marketing company Wayclip.',
-      'I validated it by running it myself: five Japanese-language Instagram accounts produced on this pipeline gathered over 460,000 combined followers — proving both the engineering and content-marketing sides of the work.',
+      'I validated it by running it myself: five Japanese-language Instagram accounts produced on this pipeline gathered over 520,000 combined followers and reached 300M cumulative views from just nine videos per channel — proving both the engineering and content-marketing sides of the work.',
     ],
     stats: [
-      { value: '463,000+', label: 'Combined account followers' },
+      { value: '526,000+', label: 'Combined account followers' },
+      { value: '300M views', label: 'From just 9 videos per channel' },
       { value: '5', label: 'Auto-run Instagram accounts' },
       { value: 'Delivered', label: 'Shipped to Wayclip' },
     ],
@@ -443,11 +447,11 @@ const enProjects: ShowcaseProject[] = [
     images: HYPERFRAMES_IMAGES_EN,
     thumbnailFit: 'contain',
     channels: [
-      { handle: '@goodvibesongs.mp3', followers: '192K', note: 'Mood music' },
-      { handle: '@goodmovies_reko', followers: '91K', note: 'Movie picks' },
-      { handle: '@readyaction_movies', followers: '80K', note: 'Movies' },
-      { handle: '@thishiphop.ply', followers: '77K', note: 'Hip-hop' },
-      { handle: '@space_lab.note', followers: '23K', note: 'Space & science' },
+      { handle: '@goodvibesongs.mp3', followers: '214K', note: 'Mood music' },
+      { handle: '@goodmovies_reko', followers: '99K', note: 'Movie picks' },
+      { handle: '@readyaction_movies', followers: '98K', note: 'Movies' },
+      { handle: '@thishiphop.ply', followers: '88K', note: 'Hip-hop' },
+      { handle: '@space_lab.note', followers: '25K', note: 'Space & science' },
     ],
     status: 'Private · Delivered to Wayclip',
     accent: '#7c3aed',
@@ -460,16 +464,16 @@ const enProjects: ShowcaseProject[] = [
     role: 'Design · Open-source Maintainer',
     summary: [
       'A "harness" is a template repo that ships conventions, automation scripts, and agent configuration up front so AI coding agents work predictably in any new project. I built two: one for Claude Code (Harness-for-claude) and a general-purpose one (Harness-for-codex) for Codex and others.',
-      'Unusual for personal open source, the two repos together earned 62 stars and 22 forks, becoming reference implementations for agent-driven development workflows.',
+      'Unusual for personal open source, the two repos together earned 67 stars and 22 forks, becoming reference implementations for agent-driven development workflows.',
     ],
     stats: [
-      { value: '62', label: 'Combined GitHub stars' },
-      { value: '22', label: 'Combined forks' },
+      { value: '67', label: 'Combined GitHub stars', icon: 'star' },
+      { value: '22', label: 'Combined forks', icon: 'fork' },
       { value: '2', label: 'Open-source repos' },
     ],
     features: [
-      { title: 'Harness-for-claude', desc: 'Tailored for Claude Code — session context loader, verification hooks, hardened permissions. ★30 · ⑂13' },
-      { title: 'Harness-for-codex', desc: 'AGENTS.md spec for broad compatibility across Codex, Cursor, and Aider. ★32 · ⑂9' },
+      { title: 'Harness-for-claude', desc: 'Tailored for Claude Code — session context loader, verification hooks, hardened permissions. ★32 · ⑂13' },
+      { title: 'Harness-for-codex', desc: 'AGENTS.md spec for broad compatibility across Codex, Cursor, and Aider. ★35 · ⑂9' },
       { title: 'Language-agnostic Automation', desc: 'Shared bootstrap / check / test scripts that auto-detect Node, Python, and Rust stacks.' },
     ],
     techStack: ['Shell', 'GitHub Actions', 'Claude Code', 'OpenAI Codex', 'AGENTS.md', 'Docker'],
@@ -570,15 +574,16 @@ const jaProjects: ShowcaseProject[] = [
   {
     slug: 'hyperframes-automation',
     name: 'ショート/ロング制作の自動化パイプライン',
-    tagline: '台本や音源を入れるだけで字幕・ナレーション・動画が完成 — 自ら運営した日本のインスタ計46万フォロワーで実証',
+    tagline: '台本や音源を入れるだけで字幕・ナレーション・動画が完成 — 自ら運営した日本のインスタ計約52万フォロワーで実証',
     period: '2025.05 ～ 現在',
     role: '企画 · AI · 自動化開発',
     summary: [
       'HyperFrames（HTMLベースの動画合成）を活用し、ショート・ロング動画の制作を丸ごと自動化したパイプラインです。音源や台本を入力すると、文字起こし・翻訳・字幕・ナレーション・背景映像の合成・レンダリングまで、ほぼ人手を介さず完成します。このシステムをコンテンツマーケティング会社 Wayclip に納品しました。',
-      '作ったツールを自ら運用して実証しました。日本語のInstagramアカウント5つをこのパイプラインで運営し、合算フォロワー46万人以上を集めました。技術力とコンテンツマーケティング力の両方を証明したプロジェクトです。',
+      '作ったツールを自ら運用して実証しました。日本語のInstagramアカウント5つをこのパイプラインで運営し、合算フォロワー約52万人を集め、各チャンネルわずか9本の動画で累計3億再生を達成しました。技術力とコンテンツマーケティング力の両方を証明したプロジェクトです。',
     ],
     stats: [
-      { value: '463,000+', label: '運営アカウント合算フォロワー' },
+      { value: '526,000+', label: '運営アカウント合算フォロワー' },
+      { value: '3億 再生', label: '各チャンネル9本の動画で達成' },
       { value: '5', label: '自動運営のインスタアカウント' },
       { value: 'Wayclip納品', label: '実際の商用導入' },
     ],
@@ -592,11 +597,11 @@ const jaProjects: ShowcaseProject[] = [
     images: HYPERFRAMES_IMAGES_JA,
     thumbnailFit: 'contain',
     channels: [
-      { handle: '@goodvibesongs.mp3', followers: '19.2万', note: '感性音楽' },
-      { handle: '@goodmovies_reko', followers: '9.1万', note: '映画おすすめ' },
-      { handle: '@readyaction_movies', followers: '8万', note: '映画' },
-      { handle: '@thishiphop.ply', followers: '7.7万', note: 'ヒップホップ' },
-      { handle: '@space_lab.note', followers: '2.3万', note: '宇宙・科学' },
+      { handle: '@goodvibesongs.mp3', followers: '21.4万', note: '感性音楽' },
+      { handle: '@goodmovies_reko', followers: '9.9万', note: '映画おすすめ' },
+      { handle: '@readyaction_movies', followers: '9.8万', note: '映画' },
+      { handle: '@thishiphop.ply', followers: '8.8万', note: 'ヒップホップ' },
+      { handle: '@space_lab.note', followers: '2.5万', note: '宇宙・科学' },
     ],
     status: '非公開 · Wayclip納品',
     accent: '#7c3aed',
@@ -609,16 +614,16 @@ const jaProjects: ShowcaseProject[] = [
     role: '設計 · OSSメンテナー',
     summary: [
       'ハーネス（harness）は、AIコーディングエージェントが新しいプロジェクトでも迷わないよう、規約・自動化スクリプト・エージェント設定をあらかじめ備えたテンプレートリポジトリです。Claude Code用（Harness-for-claude）と、Codexなど汎用（Harness-for-codex）の2つを作りました。',
-      '個人のOSSとしては異例の、2リポジトリ合算で62スター・22フォークを獲得し、エージェント駆動の開発ワークフローの参考実装として定着しました。',
+      '個人のOSSとしては異例の、2リポジトリ合算で67スター・22フォークを獲得し、エージェント駆動の開発ワークフローの参考実装として定着しました。',
     ],
     stats: [
-      { value: '62', label: '合算GitHubスター' },
-      { value: '22', label: '合算フォーク' },
+      { value: '67', label: '合算GitHubスター', icon: 'star' },
+      { value: '22', label: '合算フォーク', icon: 'fork' },
       { value: '2', label: 'OSSリポジトリ' },
     ],
     features: [
-      { title: 'Harness-for-claude', desc: 'Claude Codeに特化 — セッションコンテキストローダー、検証フック、強化された権限モデル。★30 · ⑂13' },
-      { title: 'Harness-for-codex', desc: 'AGENTS.md規格でCodex・Cursor・Aiderまで幅広く互換。★32 · ⑂9' },
+      { title: 'Harness-for-claude', desc: 'Claude Codeに特化 — セッションコンテキストローダー、検証フック、強化された権限モデル。★32 · ⑂13' },
+      { title: 'Harness-for-codex', desc: 'AGENTS.md規格でCodex・Cursor・Aiderまで幅広く互換。★35 · ⑂9' },
       { title: '言語非依存の自動化', desc: 'Node・Python・Rustスタックを自動検出する bootstrap・check・test スクリプトを共通提供します。' },
     ],
     techStack: ['Shell', 'GitHub Actions', 'Claude Code', 'OpenAI Codex', 'AGENTS.md', 'Docker'],

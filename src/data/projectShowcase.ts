@@ -187,6 +187,25 @@ const HYPERFRAMES_IMAGES_JA: ShowcaseImage[] = [
   { src: 'projects/hyperframes-automation/04-thishiphop-views.png', caption: '@thishiphop.ply · 自動生成動画の1週間の再生数' },
 ];
 
+const COVERLETTER_IMAGES_KO: ShowcaseImage[] = [
+  { src: 'projects/cover-letter-rag/01-architecture.png', caption: '시스템 아키텍처 — Client·Server·RDBMS·Document DB·LLM 구성', wide: true },
+  { src: 'projects/cover-letter-rag/02-scenario.png', caption: '사용자 시나리오 — 회사정보 분석 / 자소서 첨삭 흐름', wide: true },
+  { src: 'projects/cover-letter-rag/03-kullm3-benchmark.png', caption: 'KULLM3 한국어 성능 비교 (Fluency·Accuracy 등)' },
+  { src: 'projects/cover-letter-rag/04-score-comparison.png', caption: '전문가 평점 vs LLM 평점 분포 비교' },
+];
+const COVERLETTER_IMAGES_EN: ShowcaseImage[] = [
+  { src: 'projects/cover-letter-rag/01-architecture.png', caption: 'System architecture — Client, Server, RDBMS, Document DB, LLM', wide: true },
+  { src: 'projects/cover-letter-rag/02-scenario.png', caption: 'User scenario — company analysis / cover-letter editing flow', wide: true },
+  { src: 'projects/cover-letter-rag/03-kullm3-benchmark.png', caption: 'KULLM3 Korean-language benchmark (fluency, accuracy, etc.)' },
+  { src: 'projects/cover-letter-rag/04-score-comparison.png', caption: 'Expert vs. LLM score distribution' },
+];
+const COVERLETTER_IMAGES_JA: ShowcaseImage[] = [
+  { src: 'projects/cover-letter-rag/01-architecture.png', caption: 'システムアーキテクチャ — Client・Server・RDBMS・Document DB・LLM構成', wide: true },
+  { src: 'projects/cover-letter-rag/02-scenario.png', caption: 'ユーザーシナリオ — 企業情報分析 / 自己PR添削の流れ', wide: true },
+  { src: 'projects/cover-letter-rag/03-kullm3-benchmark.png', caption: 'KULLM3 韓国語性能比較（Fluency・Accuracy など）' },
+  { src: 'projects/cover-letter-rag/04-score-comparison.png', caption: '専門家の評点 vs LLMの評点の分布比較' },
+];
+
 /* ─────────────────────────  KOREAN  ───────────────────────── */
 
 const koProjects: ShowcaseProject[] = [
@@ -216,7 +235,36 @@ const koProjects: ShowcaseProject[] = [
       { label: 'GitHub 보기', url: 'https://github.com/kakao-tech-campus-3rd-step3/Team18_FE', type: 'github' },
     ],
     images: DONGARIUM_IMAGES_KO,
-    accent: '#2563eb',
+    accent: '#15803d',
+  },
+  {
+    slug: 'cover-letter-rag',
+    name: '기업 공시정보·RAG 기반 자기소개서 평가·첨삭 서비스',
+    tagline: 'DART 공시정보와 합격 자소서를 근거로 — 직무·기업 맞춤 자소서를 평가·첨삭하는 AI 서비스 (학부 졸업논문)',
+    period: '2025.09 ~ 2025.12',
+    role: '단독 연구 · 기획 · 풀스택 개발',
+    summary: [
+      '전남대학교 IoT인공지능융합전공 공학사 학위 졸업논문으로 진행한 개인 연구 프로젝트입니다. 기존 자소서 첨삭 서비스가 맞춤법·문장 교정 같은 일반론에 그치는 한계를 극복하기 위해, 금융감독원 DART 공시정보와 합격자 자소서 데이터를 근거로 지원 기업·직무에 특화된 평가와 첨삭을 제공하는 지능형 웹 서비스를 설계·구현했습니다.',
+      '환각(Hallucination)을 줄이기 위해 RAG(Retrieval-Augmented Generation) 구조를 적용하고, 한국어에 특화된 KULLM3 모델을 핵심 엔진으로 사용했습니다. 사용자가 회사명과 자소서를 입력하면 DART 공시정보를 실시간으로 요약하고, 유사 직무 합격 자소서 5건을 검색해 평가·첨삭의 근거로 활용합니다.',
+      '잡코리아에서 크롤링한 약 5만 건 중 우수 샘플로 18,000건의 평점 데이터셋을 구축해 모델 신뢰도를 검증했고, 전문가 평점과 LLM 평점이 동일한 우상향 경향(2.0/3.0/4.0 → 2.53/2.68/3.48)을 보여 평가 모델의 신뢰성을 입증했습니다.',
+    ],
+    stats: [
+      { value: '18,000건', label: '평점 데이터셋 구축·검증' },
+      { value: 'DART API', label: '기업 공시정보 실시간 활용' },
+      { value: 'KULLM3 · RAG', label: '한국어 특화 LLM 엔진' },
+    ],
+    features: [
+      { title: '공시정보 기반 분석', desc: '금융감독원 DART API로 지원 기업의 최신 분기 공시를 수집·요약해, 기업 현황과 주력 사업을 반영한 피드백을 제공합니다.' },
+      { title: 'RAG 유사 자소서 검색', desc: 'Document DB에서 유사 직무 합격 자소서 상위 5건을 검색해, 직군 맞춤 평가·첨삭의 근거로 활용합니다.' },
+      { title: '신뢰도 검증된 평가 모델', desc: '전문가 평점과 비교 검증해 동일한 점수 경향을 확인 — 단순 교정을 넘어 직무·기업 키워드를 반영한 정량 평가와 구체 첨삭을 제공합니다.' },
+    ],
+    techStack: ['KULLM3', 'RAG', 'Python', 'Selenium', 'DART API', 'Document DB', 'RDBMS', 'HTML/CSS', 'JavaScript', 'Figma'],
+    links: [],
+    images: COVERLETTER_IMAGES_KO,
+    status: '전남대학교 공학사 학위 졸업논문 (2025.12)',
+    thumbnail: 'projects/cover-letter-rag/01-architecture.png',
+    thumbnailFit: 'contain',
+    accent: '#7c3aed',
   },
   {
     slug: 'kakao-map-capture',
@@ -243,7 +291,7 @@ const koProjects: ShowcaseProject[] = [
     images: KAKAO_IMAGES_KO,
     status: '광주 북구 선관위 도입 · 중앙선관위 채택 추진 중',
     thumbnail: 'projects/kakao-map-capture/thumbnail.png',
-    accent: '#15803d',
+    accent: '#ea580c',
   },
   {
     slug: 'shortsper',
@@ -304,7 +352,7 @@ const koProjects: ShowcaseProject[] = [
       { handle: '@space_lab.note', followers: '2.5만', note: '우주·과학' },
     ],
     status: '비공개 · 웨이클립 납품',
-    accent: '#7c3aed',
+    accent: '#0d9488',
   },
   {
     slug: 'harness',
@@ -333,7 +381,7 @@ const koProjects: ShowcaseProject[] = [
     ],
     images: [],
     thumbnail: 'projects/harness/thumbnail.png',
-    accent: '#ea580c',
+    accent: '#2563eb',
   },
 ];
 
@@ -366,7 +414,36 @@ const enProjects: ShowcaseProject[] = [
       { label: 'View GitHub', url: 'https://github.com/kakao-tech-campus-3rd-step3/Team18_FE', type: 'github' },
     ],
     images: DONGARIUM_IMAGES_EN,
-    accent: '#2563eb',
+    accent: '#15803d',
+  },
+  {
+    slug: 'cover-letter-rag',
+    name: 'Cover-Letter Evaluation & Editing with Corporate Disclosures + RAG',
+    tagline: 'Grounded in DART disclosures and successful cover letters — an AI service that scores and edits cover letters tailored to each company and role (undergraduate thesis)',
+    period: 'Sep 2025 – Dec 2025',
+    role: 'Solo Research · Product · Full-stack Development',
+    summary: [
+      'An individual research project for my undergraduate engineering thesis (IoT-AI Convergence, Chonnam National University). To move beyond generic spelling and grammar feedback, I designed and built an intelligent web service that evaluates and edits cover letters using South Korea’s official DART corporate disclosures and a corpus of successful cover letters as grounding.',
+      'To reduce hallucination I applied a RAG (Retrieval-Augmented Generation) architecture with KULLM3, a Korean-optimized LLM, as the core engine. Given a company name and a draft, it summarizes the latest DART disclosures in real time and retrieves five similar successful cover letters as the basis for scoring and editing.',
+      'I built an 18,000-sample rating dataset (curated from ~50,000 crawled entries) to validate the model: LLM scores tracked expert scores with the same upward trend (2.0/3.0/4.0 → 2.53/2.68/3.48), confirming the evaluation model’s reliability.',
+    ],
+    stats: [
+      { value: '18,000', label: 'Rating dataset built & validated' },
+      { value: 'DART API', label: 'Real-time corporate disclosures' },
+      { value: 'KULLM3 · RAG', label: 'Korean-optimized LLM engine' },
+    ],
+    features: [
+      { title: 'Disclosure-grounded Analysis', desc: 'Collects and summarizes the latest quarterly DART disclosures via API to ground feedback in the company’s real business.' },
+      { title: 'RAG Cover-letter Retrieval', desc: 'Retrieves the top 5 similar successful cover letters from a Document DB as the basis for role-specific scoring and edits.' },
+      { title: 'Validated Scoring Model', desc: 'Benchmarked against expert ratings with matching score trends — delivering quantitative scores and concrete edits that reflect role and company keywords.' },
+    ],
+    techStack: ['KULLM3', 'RAG', 'Python', 'Selenium', 'DART API', 'Document DB', 'RDBMS', 'HTML/CSS', 'JavaScript', 'Figma'],
+    links: [],
+    images: COVERLETTER_IMAGES_EN,
+    status: 'Undergraduate B.Eng. thesis (Dec 2025)',
+    thumbnail: 'projects/cover-letter-rag/01-architecture.png',
+    thumbnailFit: 'contain',
+    accent: '#7c3aed',
   },
   {
     slug: 'kakao-map-capture',
@@ -393,7 +470,7 @@ const enProjects: ShowcaseProject[] = [
     images: KAKAO_IMAGES_EN,
     status: 'In use at a district election commission · National rollout in progress',
     thumbnail: 'projects/kakao-map-capture/thumbnail.png',
-    accent: '#15803d',
+    accent: '#ea580c',
   },
   {
     slug: 'shortsper',
@@ -454,7 +531,7 @@ const enProjects: ShowcaseProject[] = [
       { handle: '@space_lab.note', followers: '25K', note: 'Space & science' },
     ],
     status: 'Private · Delivered to Wayclip',
-    accent: '#7c3aed',
+    accent: '#0d9488',
   },
   {
     slug: 'harness',
@@ -483,7 +560,7 @@ const enProjects: ShowcaseProject[] = [
     ],
     images: [],
     thumbnail: 'projects/harness/thumbnail.png',
-    accent: '#ea580c',
+    accent: '#2563eb',
   },
 ];
 
@@ -516,7 +593,36 @@ const jaProjects: ShowcaseProject[] = [
       { label: 'GitHubを見る', url: 'https://github.com/kakao-tech-campus-3rd-step3/Team18_FE', type: 'github' },
     ],
     images: DONGARIUM_IMAGES_JA,
-    accent: '#2563eb',
+    accent: '#15803d',
+  },
+  {
+    slug: 'cover-letter-rag',
+    name: '企業の公示情報・RAGを活用した自己PR評価・添削サービス',
+    tagline: 'DART公示情報と合格自己PRを根拠に — 職務・企業に最適化した自己PRを評価・添削するAIサービス（学部卒業論文）',
+    period: '2025.09 ～ 2025.12',
+    role: '単独研究 · 企画 · フルスタック開発',
+    summary: [
+      '全南大学 IoT人工知能融合専攻の工学士学位 卒業論文として行った個人研究プロジェクトです。従来の自己PR添削サービスが誤字・文章校正といった一般論にとどまる限界を克服するため、金融監督院DARTの公示情報と合格者の自己PRデータを根拠に、志望企業・職務に特化した評価と添削を提供する知能型Webサービスを設計・実装しました。',
+      'ハルシネーション（幻覚）を抑えるためRAG（Retrieval-Augmented Generation）構造を採用し、韓国語に特化したKULLM3モデルを中核エンジンに使用しました。会社名と自己PRを入力すると、DART公示情報をリアルタイムに要約し、類似職務の合格自己PR5件を検索して評価・添削の根拠に活用します。',
+      'ジョブコリアからクロールした約5万件のうち優良サンプルで18,000件の評点データセットを構築してモデルの信頼性を検証し、専門家の評点とLLMの評点が同じ右肩上がりの傾向（2.0/3.0/4.0 → 2.53/2.68/3.48）を示すことを確認しました。',
+    ],
+    stats: [
+      { value: '18,000件', label: '評点データセットの構築・検証' },
+      { value: 'DART API', label: '企業の公示情報をリアルタイム活用' },
+      { value: 'KULLM3 · RAG', label: '韓国語特化のLLMエンジン' },
+    ],
+    features: [
+      { title: '公示情報ベースの分析', desc: '金融監督院DART APIで志望企業の最新四半期公示を収集・要約し、企業の現状と主力事業を反映したフィードバックを提供します。' },
+      { title: 'RAG類似自己PR検索', desc: 'Document DBから類似職務の合格自己PR上位5件を検索し、職種に合わせた評価・添削の根拠に活用します。' },
+      { title: '信頼性を検証した評価モデル', desc: '専門家の評点と比較検証して同じスコア傾向を確認 — 単なる校正を超え、職務・企業のキーワードを反映した定量評価と具体的な添削を提供します。' },
+    ],
+    techStack: ['KULLM3', 'RAG', 'Python', 'Selenium', 'DART API', 'Document DB', 'RDBMS', 'HTML/CSS', 'JavaScript', 'Figma'],
+    links: [],
+    images: COVERLETTER_IMAGES_JA,
+    status: '全南大学 工学士学位 卒業論文（2025.12）',
+    thumbnail: 'projects/cover-letter-rag/01-architecture.png',
+    thumbnailFit: 'contain',
+    accent: '#7c3aed',
   },
   {
     slug: 'kakao-map-capture',
@@ -543,7 +649,7 @@ const jaProjects: ShowcaseProject[] = [
     images: KAKAO_IMAGES_JA,
     status: '光州北区選管に導入 · 中央選管の採用を推進中',
     thumbnail: 'projects/kakao-map-capture/thumbnail.png',
-    accent: '#15803d',
+    accent: '#ea580c',
   },
   {
     slug: 'shortsper',
@@ -604,7 +710,7 @@ const jaProjects: ShowcaseProject[] = [
       { handle: '@space_lab.note', followers: '2.5万', note: '宇宙・科学' },
     ],
     status: '非公開 · Wayclip納品',
-    accent: '#7c3aed',
+    accent: '#0d9488',
   },
   {
     slug: 'harness',
@@ -633,7 +739,7 @@ const jaProjects: ShowcaseProject[] = [
     ],
     images: [],
     thumbnail: 'projects/harness/thumbnail.png',
-    accent: '#ea580c',
+    accent: '#2563eb',
   },
 ];
 

@@ -1,3 +1,7 @@
 node_modules
 dist
 .DS_Store
+
+# PDF 생성 산출물 (gen-pdf*.mjs 결과물)
+portfolio-*.html
+*.pdf

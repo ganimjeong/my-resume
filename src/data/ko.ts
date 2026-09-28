@@ -3,7 +3,7 @@ import type { ResumeData } from './types';
 export const koData: ResumeData = {
   header: {
     name: '정아진',
-    title: '프론트엔드 & AI 개발자',
+    title: 'AI 네이티브 개발자',
     greeting: '안녕하세요, Ajin Jeong 입니다 👋',
     hashtags: ['# 대통령 장학생', '# 멘사 정회원'],
     contact: {
@@ -21,10 +21,9 @@ export const koData: ResumeData = {
     title: '소개',
     description: [
       { text: '저는 ' },
-      { text: '프론트엔드와 인공지능', bold: true },
-      { text: ' 분야를 개발하는 ' },
-      { text: '정아진', bold: true },
+      { text: 'AI 개발자 정아진', bold: true },
       { text: '입니다!\n' },
+      { text: 'LLM·RAG·자동화 파이프라인을 직접 설계해, 아이디어를 실제 서비스로 구현하고 운영까지 책임집니다.\n' },
       { text: '주전공은 ' },
       { text: 'IoT인공지능융합전공', bold: true },
       { text: ',\n융합 이전 전공은 경제학과,\n부전공은 일어일문학과입니다.' },

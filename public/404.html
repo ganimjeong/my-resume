@@ -7,14 +7,16 @@
     <script>
       // Valid SPA route patterns → auto-redirect preserving the path (spa-github-pages trick)
       (function () {
-        var base = '/my-resume/';
+        // github.io 에서는 /my-resume/ 하위, 커스텀 도메인에서는 루트(/)에서 서비스됨
+        var base = /\.github\.io$/i.test(window.location.hostname) ? '/my-resume/' : '/';
+        var prefix = base.replace(/\/$/, '');
         var path = window.location.pathname;
         var validPatterns = [
-          /^\/my-resume\/?$/,
-          /^\/my-resume\/resume\/(ko|en|ja)\/?$/,
-          /^\/my-resume\/resume\/(ko|en|ja)\/print\/?$/,
-          /^\/my-resume\/resume\/(ko|en|ja)\/projects\/?$/,
-          /^\/my-resume\/resume\/(ko|en|ja)\/projects\/[a-z0-9-]+\/?$/,
+          new RegExp('^' + prefix + '/?$'),
+          new RegExp('^' + prefix + '/resume/(ko|en|ja)/?$'),
+          new RegExp('^' + prefix + '/resume/(ko|en|ja)/print/?$'),
+          new RegExp('^' + prefix + '/resume/(ko|en|ja)/projects/?$'),
+          new RegExp('^' + prefix + '/resume/(ko|en|ja)/projects/[a-z0-9-]+/?$'),
         ];
         var isSpaRoute = validPatterns.some(function (p) { return p.test(path); });
         if (isSpaRoute) {
@@ -129,9 +131,10 @@
       document.getElementById('btn-refresh').textContent = t.refresh;
 
       function goToPrint() {
-        var printPath = '/my-resume/resume/' + lang + '/print';
+        var base = /\.github\.io$/i.test(window.location.hostname) ? '/my-resume/' : '/';
+        var printPath = base + 'resume/' + lang + '/print';
         sessionStorage.setItem('spa-redirect', printPath);
-        window.location.href = '/my-resume/';
+        window.location.href = base;
       }
 
       var timer = null;
@@ -155,13 +158,14 @@
 
       function smartRedirect() {
         var path = window.location.pathname;
-        var base = '/my-resume/';
+        var base = /\.github\.io$/i.test(window.location.hostname) ? '/my-resume/' : '/';
+        var prefix = base.replace(/\/$/, '');
         var validPatterns = [
-          /^\/my-resume\/?$/,
-          /^\/my-resume\/resume\/(ko|en|ja)\/?$/,
-          /^\/my-resume\/resume\/(ko|en|ja)\/print\/?$/,
-          /^\/my-resume\/resume\/(ko|en|ja)\/projects\/?$/,
-          /^\/my-resume\/resume\/(ko|en|ja)\/projects\/[a-z0-9-]+\/?$/,
+          new RegExp('^' + prefix + '/?$'),
+          new RegExp('^' + prefix + '/resume/(ko|en|ja)/?$'),
+          new RegExp('^' + prefix + '/resume/(ko|en|ja)/print/?$'),
+          new RegExp('^' + prefix + '/resume/(ko|en|ja)/projects/?$'),
+          new RegExp('^' + prefix + '/resume/(ko|en|ja)/projects/[a-z0-9-]+/?$'),
         ];
         var isSpaRoute = validPatterns.some(function (p) { return p.test(path); });
         if (isSpaRoute) {

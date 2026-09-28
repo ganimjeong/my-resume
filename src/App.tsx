@@ -6,9 +6,11 @@ import ProjectShowcase from './pages/ProjectShowcase'
 import ProjectDetail from './pages/ProjectDetail'
 import ScrollToTop from './components/shared/ScrollToTop'
 
+const basename = import.meta.env.BASE_URL.replace(/\/$/, '')
+
 export default function App() {
   return (
-    <BrowserRouter basename="/my-resume">
+    <BrowserRouter basename={basename}>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Landing />} />

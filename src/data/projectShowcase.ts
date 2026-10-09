@@ -327,7 +327,7 @@ const koProjects: ShowcaseProject[] = [
     role: '기획 · AI · 자동화 개발',
     summary: [
       'HyperFrames(HTML 기반 영상 합성)를 활용해 숏폼·롱폼 영상 제작을 통째로 자동화한 파이프라인입니다. 음원이나 대본을 입력하면 전사·번역·자막·내레이션·배경영상 합성·렌더링까지 사람 손을 거의 거치지 않고 완성됩니다. 이 시스템을 콘텐츠 마케팅 회사 웨이클립에 납품했습니다.',
-      '만든 도구를 직접 운영해 검증했습니다. 일본어 인스타그램 계정 5개를 이 파이프라인으로 운영하며 합산 팔로워 약 70만 명을 모았고, 누적 9억 조회수를 달성했습니다. 기술과 콘텐츠 마케팅 역량을 함께 증명한 프로젝트입니다.',
+      '만든 도구를 직접 운영해 검증했습니다. 일본어 인스타그램 계정 5개를 이 파이프라인으로 운영하며 합산 팔로워 약 70만 명을 모았고, 채널당 단 9개씩의 영상만으로 3억 조회수를, 누적 9억 조회수를 달성했습니다. 기술과 콘텐츠 마케팅 역량을 함께 증명한 프로젝트입니다.',
     ],
     stats: [
       { value: '700,000+', label: '운영 계정 합산 팔로워' },
@@ -506,7 +506,7 @@ const enProjects: ShowcaseProject[] = [
     role: 'Product · AI · Automation Development',
     summary: [
       'A pipeline that fully automates short- and long-form video production using HyperFrames (HTML-based video composition). Feed it a track or script and it handles transcription, translation, captioning, narration, background-footage compositing, and rendering with almost no manual work. I delivered this system to the content-marketing company Wayclip.',
-      'I validated it by running it myself: five Japanese-language Instagram accounts produced on this pipeline gathered about 700,000 combined followers and reached 900M cumulative views — proving both the engineering and content-marketing sides of the work.',
+      'I validated it by running it myself: five Japanese-language Instagram accounts produced on this pipeline gathered about 700,000 combined followers, hitting 300M views with just nine videos per channel and 900M cumulative views — proving both the engineering and content-marketing sides of the work.',
     ],
     stats: [
       { value: '700,000+', label: 'Combined account followers' },
@@ -685,7 +685,7 @@ const jaProjects: ShowcaseProject[] = [
     role: '企画 · AI · 自動化開発',
     summary: [
       'HyperFrames（HTMLベースの動画合成）を活用し、ショート・ロング動画の制作を丸ごと自動化したパイプラインです。音源や台本を入力すると、文字起こし・翻訳・字幕・ナレーション・背景映像の合成・レンダリングまで、ほぼ人手を介さず完成します。このシステムをコンテンツマーケティング会社 Wayclip に納品しました。',
-      '作ったツールを自ら運用して実証しました。日本語のInstagramアカウント5つをこのパイプラインで運営し、合算フォロワー約70万人を集め、累計9億再生を達成しました。技術力とコンテンツマーケティング力の両方を証明したプロジェクトです。',
+      '作ったツールを自ら運用して実証しました。日本語のInstagramアカウント5つをこのパイプラインで運営し、合算フォロワー約70万人を集め、各チャンネルわずか9本ずつの動画で3億再生、累計9億再生を達成しました。技術力とコンテンツマーケティング力の両方を証明したプロジェクトです。',
     ],
     stats: [
       { value: '700,000+', label: '運営アカウント合算フォロワー' },

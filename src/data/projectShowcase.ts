@@ -270,7 +270,7 @@ const koProjects: ShowcaseProject[] = [
     slug: 'kakao-map-capture',
     name: '선거관리위원회 지도 캡처 자동화',
     tagline: '주소 리스트만 붙여넣으면, 반경 지도가 한 번에 — 선관위 업무 자동화 툴',
-    period: '2025.05',
+    period: '2026.05',
     role: '기획 · 풀스택 개발',
     summary: [
       '선거관리위원회는 사전투표소·시설 점검을 위해 수십 곳의 주소마다 100m 반경이 표시된 지도를 일일이 캡처해야 했습니다. 이 반복 업무를 "주소 붙여넣기 → 캡처 시작 → ZIP 다운로드" 세 단계로 끝내는 무설치 웹 툴로 자동화했습니다.',
@@ -297,7 +297,7 @@ const koProjects: ShowcaseProject[] = [
     slug: 'shortsper',
     name: '숏폼 콘텐츠 분석 자동화 (웨이클립)',
     tagline: '인스타 릴스를 붙여넣으면 대본·후킹·성과 데이터까지 — AI 기반 콘텐츠 인텔리전스',
-    period: '2025.04 ~ 현재',
+    period: '2026.04 ~ 현재',
     role: '기획 · AI · 풀스택 개발',
     summary: [
       '콘텐츠 마케팅 회사 웨이클립을 위해 만든 숏폼 분석 자동화 툴입니다. 인스타그램 릴스 URL만 넣으면 영상 대본을 자동 추출하고, 도입부 후킹 구간을 표시하며, 조회수·좋아요·댓글·해시태그·사운드 같은 성과 데이터를 정리해 엑셀로 내려줍니다.',
@@ -322,16 +322,16 @@ const koProjects: ShowcaseProject[] = [
   {
     slug: 'hyperframes-automation',
     name: '숏폼/롱폼 제작 자동화 파이프라인',
-    tagline: '대본·음원만 넣으면 자막·내레이션·영상이 완성 — 직접 일본 인스타 계정 약 52만 팔로워로 검증',
-    period: '2025.05 ~ 현재',
+    tagline: '대본·음원만 넣으면 자막·내레이션·영상이 완성 — 직접 일본 인스타 계정 약 70만 팔로워로 검증',
+    period: '2026.05 ~ 현재',
     role: '기획 · AI · 자동화 개발',
     summary: [
       'HyperFrames(HTML 기반 영상 합성)를 활용해 숏폼·롱폼 영상 제작을 통째로 자동화한 파이프라인입니다. 음원이나 대본을 입력하면 전사·번역·자막·내레이션·배경영상 합성·렌더링까지 사람 손을 거의 거치지 않고 완성됩니다. 이 시스템을 콘텐츠 마케팅 회사 웨이클립에 납품했습니다.',
-      '만든 도구를 직접 운영해 검증했습니다. 일본어 인스타그램 계정 5개를 이 파이프라인으로 운영하며 합산 팔로워 약 52만 명을 모았고, 채널당 단 9개의 영상만으로 누적 3억 조회수를 달성했습니다. 기술과 콘텐츠 마케팅 역량을 함께 증명한 프로젝트입니다.',
+      '만든 도구를 직접 운영해 검증했습니다. 일본어 인스타그램 계정 5개를 이 파이프라인으로 운영하며 합산 팔로워 약 70만 명을 모았고, 누적 9억 조회수를 달성했습니다. 기술과 콘텐츠 마케팅 역량을 함께 증명한 프로젝트입니다.',
     ],
     stats: [
-      { value: '526,000+', label: '운영 계정 합산 팔로워' },
-      { value: '3억 뷰', label: '채널당 9개 영상으로 달성' },
+      { value: '700,000+', label: '운영 계정 합산 팔로워' },
+      { value: '9억 뷰', label: '운영 계정 누적 조회수' },
       { value: '5개', label: '자동 운영 인스타 계정' },
       { value: '웨이클립 납품', label: '실제 상용 도입' },
     ],
@@ -358,15 +358,15 @@ const koProjects: ShowcaseProject[] = [
     slug: 'harness',
     name: 'AI 코딩 에이전트 하네스 (오픈소스)',
     tagline: 'AI 에이전트가 어떤 프로젝트에서도 일관되게 일하도록 돕는 스타터 — GitHub에서 호응을 얻은 오픈소스',
-    period: '2025.05',
+    period: '2026.05',
     role: '설계 · 오픈소스 메인테이너',
     summary: [
       '하네스(harness)는 AI 코딩 에이전트가 새 프로젝트에서도 헤매지 않도록, 규칙·자동화 스크립트·에이전트 설정을 미리 갖춰 둔 템플릿 저장소입니다. Claude Code용(Harness-for-claude)과 Codex 등 범용(Harness-for-codex) 두 가지로 만들었습니다.',
-      '개인 오픈소스로서는 이례적으로 두 저장소 합산 67개의 스타와 22개의 포크를 받으며, 에이전트 기반 개발 워크플로의 참고 구현으로 자리잡았습니다.',
+      '개인 오픈소스로서는 이례적으로 두 저장소 합산 80개의 스타와 27개의 포크를 받으며, 에이전트 기반 개발 워크플로의 참고 구현으로 자리잡았습니다.',
     ],
     stats: [
-      { value: '67', label: '합산 GitHub 스타', icon: 'star' },
-      { value: '22', label: '합산 포크', icon: 'fork' },
+      { value: '80', label: '합산 GitHub 스타', icon: 'star' },
+      { value: '27', label: '합산 포크', icon: 'fork' },
       { value: '2', label: '오픈소스 저장소' },
     ],
     features: [
@@ -449,7 +449,7 @@ const enProjects: ShowcaseProject[] = [
     slug: 'kakao-map-capture',
     name: 'Election Commission Map-Capture Automation',
     tagline: 'Paste an address list, get radius maps in one batch — a workflow tool built for a Korean government election agency',
-    period: 'May 2025',
+    period: 'May 2026',
     role: 'Product · Full-stack Development',
     summary: [
       'In South Korea, election commissions — the public government bodies that administer elections — had to manually capture a 100m-radius map for each of dozens of polling-station addresses. I automated this repetitive task into a no-install web tool that finishes the job in three steps: paste addresses → start capture → download ZIP.',
@@ -476,7 +476,7 @@ const enProjects: ShowcaseProject[] = [
     slug: 'shortsper',
     name: 'Short-form Content Analysis Automation (Wayclip)',
     tagline: 'Paste an Instagram Reel, get the script, hook, and performance data — AI-powered content intelligence',
-    period: 'Apr 2025 – Present',
+    period: 'Apr 2026 – Present',
     role: 'Product · AI · Full-stack Development',
     summary: [
       'A short-form analysis tool built for the content-marketing company Wayclip. Paste an Instagram Reel URL and it auto-extracts the script, marks the opening hook window, and compiles performance data — views, likes, comments, hashtags, sound — into an Excel report.',
@@ -501,16 +501,16 @@ const enProjects: ShowcaseProject[] = [
   {
     slug: 'hyperframes-automation',
     name: 'Short-form / Long-form Production Automation Pipeline',
-    tagline: 'Feed it a script or track, get captions, narration, and video — proven on Japanese IG accounts with ~520K followers',
-    period: 'May 2025 – Present',
+    tagline: 'Feed it a script or track, get captions, narration, and video — proven on Japanese IG accounts with ~700K followers',
+    period: 'May 2026 – Present',
     role: 'Product · AI · Automation Development',
     summary: [
       'A pipeline that fully automates short- and long-form video production using HyperFrames (HTML-based video composition). Feed it a track or script and it handles transcription, translation, captioning, narration, background-footage compositing, and rendering with almost no manual work. I delivered this system to the content-marketing company Wayclip.',
-      'I validated it by running it myself: five Japanese-language Instagram accounts produced on this pipeline gathered over 520,000 combined followers and reached 300M cumulative views from just nine videos per channel — proving both the engineering and content-marketing sides of the work.',
+      'I validated it by running it myself: five Japanese-language Instagram accounts produced on this pipeline gathered about 700,000 combined followers and reached 900M cumulative views — proving both the engineering and content-marketing sides of the work.',
     ],
     stats: [
-      { value: '526,000+', label: 'Combined account followers' },
-      { value: '300M views', label: 'From just 9 videos per channel' },
+      { value: '700,000+', label: 'Combined account followers' },
+      { value: '900M views', label: 'Cumulative views across accounts' },
       { value: '5', label: 'Auto-run Instagram accounts' },
       { value: 'Delivered', label: 'Shipped to Wayclip' },
     ],
@@ -537,15 +537,15 @@ const enProjects: ShowcaseProject[] = [
     slug: 'harness',
     name: 'AI Coding-Agent Harnesses (Open Source)',
     tagline: 'Starter kits that let AI agents work consistently in any project — open source with real traction on GitHub',
-    period: 'May 2025',
+    period: 'May 2026',
     role: 'Design · Open-source Maintainer',
     summary: [
       'A "harness" is a template repo that ships conventions, automation scripts, and agent configuration up front so AI coding agents work predictably in any new project. I built two: one for Claude Code (Harness-for-claude) and a general-purpose one (Harness-for-codex) for Codex and others.',
-      'Unusual for personal open source, the two repos together earned 67 stars and 22 forks, becoming reference implementations for agent-driven development workflows.',
+      'Unusual for personal open source, the two repos together earned 80 stars and 27 forks, becoming reference implementations for agent-driven development workflows.',
     ],
     stats: [
-      { value: '67', label: 'Combined GitHub stars', icon: 'star' },
-      { value: '22', label: 'Combined forks', icon: 'fork' },
+      { value: '80', label: 'Combined GitHub stars', icon: 'star' },
+      { value: '27', label: 'Combined forks', icon: 'fork' },
       { value: '2', label: 'Open-source repos' },
     ],
     features: [
@@ -628,7 +628,7 @@ const jaProjects: ShowcaseProject[] = [
     slug: 'kakao-map-capture',
     name: '選挙管理委員会 地図キャプチャ自動化',
     tagline: '住所リストを貼り付けるだけで、半径地図が一括で — 選管の業務自動化ツール',
-    period: '2025.05',
+    period: '2026.05',
     role: '企画 · フルスタック開発',
     summary: [
       '選挙管理委員会は、期日前投票所などの点検のために数十か所の住所ごとに100m半径を表示した地図を手作業でキャプチャする必要がありました。この繰り返し作業を「住所を貼り付け → キャプチャ開始 → ZIPダウンロード」の3ステップで終わらせる、インストール不要のWebツールに自動化しました。',
@@ -655,7 +655,7 @@ const jaProjects: ShowcaseProject[] = [
     slug: 'shortsper',
     name: 'ショート動画分析の自動化（Wayclip）',
     tagline: 'インスタのリールを貼るだけで、台本・フック・成果データまで — AIベースのコンテンツインテリジェンス',
-    period: '2025.04 ～ 現在',
+    period: '2026.04 ～ 現在',
     role: '企画 · AI · フルスタック開発',
     summary: [
       'コンテンツマーケティング会社 Wayclip 向けに作ったショート動画分析の自動化ツールです。InstagramリールのURLを入れるだけで台本を自動抽出し、冒頭のフック区間を表示し、再生数・いいね・コメント・ハッシュタグ・サウンドなどの成果データを整理してExcelで出力します。',
@@ -680,16 +680,16 @@ const jaProjects: ShowcaseProject[] = [
   {
     slug: 'hyperframes-automation',
     name: 'ショート/ロング制作の自動化パイプライン',
-    tagline: '台本や音源を入れるだけで字幕・ナレーション・動画が完成 — 自ら運営した日本のインスタ計約52万フォロワーで実証',
-    period: '2025.05 ～ 現在',
+    tagline: '台本や音源を入れるだけで字幕・ナレーション・動画が完成 — 自ら運営した日本のインスタ計約70万フォロワーで実証',
+    period: '2026.05 ～ 現在',
     role: '企画 · AI · 自動化開発',
     summary: [
       'HyperFrames（HTMLベースの動画合成）を活用し、ショート・ロング動画の制作を丸ごと自動化したパイプラインです。音源や台本を入力すると、文字起こし・翻訳・字幕・ナレーション・背景映像の合成・レンダリングまで、ほぼ人手を介さず完成します。このシステムをコンテンツマーケティング会社 Wayclip に納品しました。',
-      '作ったツールを自ら運用して実証しました。日本語のInstagramアカウント5つをこのパイプラインで運営し、合算フォロワー約52万人を集め、各チャンネルわずか9本の動画で累計3億再生を達成しました。技術力とコンテンツマーケティング力の両方を証明したプロジェクトです。',
+      '作ったツールを自ら運用して実証しました。日本語のInstagramアカウント5つをこのパイプラインで運営し、合算フォロワー約70万人を集め、累計9億再生を達成しました。技術力とコンテンツマーケティング力の両方を証明したプロジェクトです。',
     ],
     stats: [
-      { value: '526,000+', label: '運営アカウント合算フォロワー' },
-      { value: '3億 再生', label: '各チャンネル9本の動画で達成' },
+      { value: '700,000+', label: '運営アカウント合算フォロワー' },
+      { value: '9億 再生', label: '運営アカウント累計再生数' },
       { value: '5', label: '自動運営のインスタアカウント' },
       { value: 'Wayclip納品', label: '実際の商用導入' },
     ],
@@ -716,15 +716,15 @@ const jaProjects: ShowcaseProject[] = [
     slug: 'harness',
     name: 'AIコーディングエージェント ハーネス（OSS）',
     tagline: 'AIエージェントがどんなプロジェクトでも一貫して働けるスターター — GitHubで反響を得たOSS',
-    period: '2025.05',
+    period: '2026.05',
     role: '設計 · OSSメンテナー',
     summary: [
       'ハーネス（harness）は、AIコーディングエージェントが新しいプロジェクトでも迷わないよう、規約・自動化スクリプト・エージェント設定をあらかじめ備えたテンプレートリポジトリです。Claude Code用（Harness-for-claude）と、Codexなど汎用（Harness-for-codex）の2つを作りました。',
-      '個人のOSSとしては異例の、2リポジトリ合算で67スター・22フォークを獲得し、エージェント駆動の開発ワークフローの参考実装として定着しました。',
+      '個人のOSSとしては異例の、2リポジトリ合算で80スター・27フォークを獲得し、エージェント駆動の開発ワークフローの参考実装として定着しました。',
     ],
     stats: [
-      { value: '67', label: '合算GitHubスター', icon: 'star' },
-      { value: '22', label: '合算フォーク', icon: 'fork' },
+      { value: '80', label: '合算GitHubスター', icon: 'star' },
+      { value: '27', label: '合算フォーク', icon: 'fork' },
       { value: '2', label: 'OSSリポジトリ' },
     ],
     features: [

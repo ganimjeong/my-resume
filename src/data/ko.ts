@@ -39,15 +39,16 @@ export const koData: ResumeData = {
           'React', 'React Hooks', 'React Router', 'React Hook Form',
           'Context API', 'Redux', 'Zustand',
           'Tailwind CSS', 'Styled-components',
-          'Vite', 'GSAP', 'Mobile-First Design', 'Memoization', 'SEO / GA',
+          'Vite', 'GSAP', 'Mobile-First Design', 'Memoization', 'SEO / GA', 'PostHog',
         ],
       },
       {
         name: '백엔드 / AI',
         items: [
-          'Python', 'OpenAI API', 'RAG', 'Claude Code / Antigravity',
-          'Whisper', 'Deepgram', 'MediaPipe', 'n8n', 'Streamlit',
-          'Axios', 'Firebase', 'Supabase', 'MySQL', 'Nginx', 'AWS', 'Railway', 'Vercel', 'GitHub Pages',
+          'Python', 'OpenAI API', 'Claude API', 'RAG', 'Claude Code / Antigravity',
+          'Whisper', 'Deepgram', 'MediaPipe', 'n8n', 'Streamlit', 'HyperFrames', 'Remotion',
+          'Axios', 'OAuth2 / OIDC', 'Firebase', 'Supabase', 'MySQL', 'Nginx',
+          'AWS', 'GCP', 'Terraform', 'Railway', 'Vercel', 'GitHub Pages',
         ],
       },
       {
@@ -74,14 +75,27 @@ export const koData: ResumeData = {
     title: '경력 / 경험',
     items: [
       {
-        position: '마케팅팀 AI/자동화 개발자',
+        position: '마케팅전략팀 팀장 · AI/자동화 개발',
         company: '웨이클립 컴퍼니 (숏퍼런스)',
         period: '2026.04 - ',
         description: [
-          '사내 업무 자동화를 위한 AI 서비스 복수 설계 및 개발',
+          '사내 유일 개발자로 AX(AI 전환) 기획·구현 전반 담당 — 성과를 인정받아 팀 신설 및 팀장 선임',
+          "구독형 릴스 분석 SaaS '숏마인드' 기획·개발·운영 (카카오 OAuth2/OIDC 로그인, PG 결제, GA·PostHog)",
+          '숏폼/롱폼 영상 기획·제작·업로드 전수 자동화 파이프라인 구축 (HyperFrames · Remotion)',
           "STT AI 플랫폼 '릴스대본추출기' 기획·개발 (Apify · Whisper · Deepgram 활용)",
           '외부 개발사 노바링크와 협업 진행',
           '마케팅 캠페인 기획 및 영상 콘텐츠 제작 병행',
+        ],
+      },
+      {
+        position: '기획 · 프론트엔드 · 인프라(Terraform)',
+        company: '2026 소프트뱅크 해커톤 — 우수상',
+        period: '2026.09 - 2026.10',
+        description: [
+          'GitHub 주소만 넣으면 클라우드에 자동 배포하는 원클릭 배포 서비스 Pawploy 개발 (팀 프로젝트)',
+          'AI 에이전트가 쓴 Terraform을 검증·실행하는 배포 워커 구현 — AWS EC2·GCP Cloud Run 실배포 확인',
+          '비즈니스 모델·ROI 설계 및 프론트엔드 개발',
+          'LLM 일반 추천 대비 배포 비용 33배 절감 구성으로 우수상 수상',
         ],
       },
       {
@@ -93,7 +107,7 @@ export const koData: ResumeData = {
           'JavaScript, React 심화 강의 150개 분량 수료 (Git, CI/CD, AWS, Figma, UI/UX 포함)',
           '클론 코딩 프로젝트 진행 및 현직 개발자 주간 코드 리뷰 수행',
           "대학 동아리 지원 통합 플랫폼 '동아리움(dongari-um)' 개발 참여",
-          '11월 수료 후 실제 서비스 배포 — 2026.03 GA 기준 페이지뷰 9만 돌파',
+          '수료 후 실서비스 배포 — GA 누적 페이지뷰 9만, 약 1년간 무중단 운영',
         ],
       },
       {
@@ -164,7 +178,7 @@ export const koData: ResumeData = {
     items: [
       {
         name: '동아리움',
-        description: '대학 동아리 지원 통합 플랫폼으로, 카카오 테크 캠퍼스 팀 프로젝트로 시작해 실제 서비스로 성장했습니다. 2026년 3월 기준 GA 페이지뷰 9만을 돌파했으며, 현재도 운영 중입니다.',
+        description: '대학 동아리 지원 통합 플랫폼으로, 카카오 테크 캠퍼스 팀 프로젝트로 시작해 실제 서비스로 성장했습니다. 런칭 3일 만에 페이지뷰 3만, GA 누적 페이지뷰 9만을 기록했고 약 1년째 무중단으로 운영 중입니다.',
         technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
         siteLink: 'https://dongarium.co.kr',
         githubLink: 'https://github.com/kakao-tech-campus-3rd-step3/Team18_FE',
@@ -172,7 +186,7 @@ export const koData: ResumeData = {
         githubLabel: 'GitHub 보기',
         stats: [
           { value: 90000, label: 'GA 페이지뷰', suffix: '+' },
-          { value: 5, label: '운영 개월', suffix: 'mo' },
+          { value: 12, label: '운영 개월', suffix: 'mo' },
         ],
       },
     ],
@@ -180,6 +194,7 @@ export const koData: ResumeData = {
   awards: {
     title: '🏆 수상 경력',
     items: [
+      { award: '우수상', description: '2026 소프트뱅크 해커톤 (Pawploy)' },
       { award: '최우수상', description: '2024 해외취업 인턴십 성과보고회' },
       { award: '모범상', description: '전남대학교 (졸업생 중 자기계발기록부 1등)' },
       { award: '대상', description: '2022 학생 창업컨퍼런스 부산 미래기업가상' },

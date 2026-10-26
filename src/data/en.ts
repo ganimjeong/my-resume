@@ -40,15 +40,16 @@ export const enData: ResumeData = {
           'React', 'React Hooks', 'React Router', 'React Hook Form',
           'Context API', 'Redux', 'Zustand',
           'Tailwind CSS', 'Styled-components',
-          'Vite', 'GSAP', 'Mobile-First Design', 'Memoization', 'SEO / GA',
+          'Vite', 'GSAP', 'Mobile-First Design', 'Memoization', 'SEO / GA', 'PostHog',
         ],
       },
       {
         name: 'Backend / AI',
         items: [
-          'Python', 'OpenAI API', 'RAG', 'Claude Code / Antigravity',
-          'Whisper', 'Deepgram', 'MediaPipe', 'n8n', 'Streamlit',
-          'Axios', 'Firebase', 'Supabase', 'MySQL', 'Nginx', 'AWS', 'Railway', 'Vercel', 'GitHub Pages',
+          'Python', 'OpenAI API', 'Claude API', 'RAG', 'Claude Code / Antigravity',
+          'Whisper', 'Deepgram', 'MediaPipe', 'n8n', 'Streamlit', 'HyperFrames', 'Remotion',
+          'Axios', 'OAuth2 / OIDC', 'Firebase', 'Supabase', 'MySQL', 'Nginx',
+          'AWS', 'GCP', 'Terraform', 'Railway', 'Vercel', 'GitHub Pages',
         ],
       },
       {
@@ -75,14 +76,27 @@ export const enData: ResumeData = {
     title: 'Experience & Activities',
     items: [
       {
-        position: 'AI/Automation Developer (Marketing Team)',
+        position: 'Team Lead, Marketing Strategy · AI/Automation Developer',
         company: 'Wayclip Company (Shortference)',
         period: '2026.04 - ',
         description: [
-          'Designed and developed multiple AI services to automate internal workflows',
+          'Sole in-house developer leading the company-wide AX (AI transformation) — results led to a new team, which I lead',
+          'Planned, built, and operate "Shortmind", a subscription SaaS for Reels analysis (Kakao OAuth2/OIDC login, PG payments, GA · PostHog)',
+          'Built an end-to-end pipeline automating short- and long-form video planning, production, and upload (HyperFrames · Remotion)',
           'Planned and developed STT AI platform "Reels Transcript Extractor" (Apify · Whisper · Deepgram)',
           'Collaborated with external development studio Novalink',
           'Led marketing campaign planning and video content production alongside development work',
+        ],
+      },
+      {
+        position: 'Product · Frontend · Infrastructure (Terraform)',
+        company: '2026 SoftBank Hackathon — Excellence Award',
+        period: '2026.09 - 2026.10',
+        description: [
+          'Built Pawploy, a one-click service that deploys any GitHub repository to the cloud (team project)',
+          'Implemented the deploy worker that validates and runs agent-written Terraform — verified live deploys on AWS EC2 and GCP Cloud Run',
+          'Designed the business model and ROI, and developed the frontend',
+          'Won the Excellence Award with a setup that cuts deployment cost 33x versus generic LLM recommendations',
         ],
       },
       {
@@ -94,7 +108,7 @@ export const enData: ResumeData = {
           'Completed 150+ advanced JavaScript and React lectures (Git, CI/CD, AWS, Figma, UI/UX included)',
           'Conducted clone coding projects with weekly code reviews from industry professionals',
           "Participated in development of 'Dongari-um', an integrated platform for university clubs",
-          'Deployed service after November graduation — reached 90,000 page views as of March 2026 (GA)',
+          'Launched as a live service after graduation — 90,000 cumulative GA page views, running nonstop for about a year',
         ],
       },
       {
@@ -165,7 +179,7 @@ export const enData: ResumeData = {
     items: [
       {
         name: 'Dongari-um',
-        description: 'A university club management integrated platform that grew from a Kakao Tech Campus team project into a real service. As of March 2026, it has surpassed 90,000 page views on GA and is still in operation.',
+        description: 'A university club management integrated platform that grew from a Kakao Tech Campus team project into a real service. It hit 30,000 page views within 3 days of launch and 90,000 cumulative on GA, and has run nonstop for about a year.',
         technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
         siteLink: 'https://dongarium.co.kr',
         githubLink: 'https://github.com/kakao-tech-campus-3rd-step3/Team18_FE',
@@ -173,7 +187,7 @@ export const enData: ResumeData = {
         githubLabel: 'View GitHub',
         stats: [
           { value: 90000, label: 'GA Page Views', suffix: '+' },
-          { value: 5, label: 'Months Live', suffix: 'mo' },
+          { value: 12, label: 'Months Live', suffix: 'mo' },
         ],
       },
     ],
@@ -181,6 +195,7 @@ export const enData: ResumeData = {
   awards: {
     title: '🏆 Awards & Honors',
     items: [
+      { award: 'Excellence Award', description: '2026 SoftBank Hackathon (Pawploy)' },
       { award: 'Grand Prize', description: '2024 Overseas Employment Internship Performance Report' },
       { award: 'Excellence Award', description: 'Chonnam National University (1st place in Self-Development Portfolio among graduates)' },
       { award: 'Grand Prize', description: '2022 Student Start-up Conference Busan Future Entrepreneur Award' },

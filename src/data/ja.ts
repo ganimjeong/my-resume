@@ -40,15 +40,16 @@ export const jaData: ResumeData = {
           'React', 'React Hooks', 'React Router', 'React Hook Form',
           'Context API', 'Redux', 'Zustand',
           'Tailwind CSS', 'Styled-components',
-          'Vite', 'GSAP', 'Mobile-First Design', 'Memoization', 'SEO / GA',
+          'Vite', 'GSAP', 'Mobile-First Design', 'Memoization', 'SEO / GA', 'PostHog',
         ],
       },
       {
         name: 'バックエンド / AI',
         items: [
-          'Python', 'OpenAI API', 'RAG', 'Claude Code / Antigravity',
-          'Whisper', 'Deepgram', 'MediaPipe', 'n8n', 'Streamlit',
-          'Axios', 'Firebase', 'Supabase', 'MySQL', 'Nginx', 'AWS', 'Railway', 'Vercel', 'GitHub Pages',
+          'Python', 'OpenAI API', 'Claude API', 'RAG', 'Claude Code / Antigravity',
+          'Whisper', 'Deepgram', 'MediaPipe', 'n8n', 'Streamlit', 'HyperFrames', 'Remotion',
+          'Axios', 'OAuth2 / OIDC', 'Firebase', 'Supabase', 'MySQL', 'Nginx',
+          'AWS', 'GCP', 'Terraform', 'Railway', 'Vercel', 'GitHub Pages',
         ],
       },
       {
@@ -75,14 +76,27 @@ export const jaData: ResumeData = {
     title: '経歴 / 活動経験',
     items: [
       {
-        position: 'マーケティングチーム AI/自動化エンジニア',
+        position: 'マーケティング戦略チーム チーム長 · AI/自動化開発',
         company: 'ウェイクリップカンパニー (ショートファレンス)',
         period: '2026.04 - ',
         description: [
-          '社内業務自動化のためのAIサービスを複数設計・開発',
+          '社内唯一の開発者としてAX（AI転換）の企画・実装全般を担当 — 成果が認められチームが新設され、チーム長に就任',
+          'サブスク型リール分析SaaS「ショートマインド」の企画・開発・運営 (カカオ OAuth2/OIDC ログイン、PG決済、GA・PostHog)',
+          'ショート/ロング動画の企画・制作・アップロードまで全自動化するパイプラインを構築 (HyperFrames · Remotion)',
           'STT AIプラットフォーム「リール台本抽出ツール」の企画・開発 (Apify · Whisper · Deepgram 活用)',
           '外部開発会社ノバリンクとの協業を推進',
           'マーケティングキャンペーン企画および映像コンテンツ制作を並行',
+        ],
+      },
+      {
+        position: '企画 · フロントエンド · インフラ(Terraform)',
+        company: '2026 ソフトバンク ハッカソン — 優秀賞',
+        period: '2026.09 - 2026.10',
+        description: [
+          'GitHubのURLを入れるだけでクラウドに自動デプロイするワンクリックデプロイサービス Pawploy を開発 (チームプロジェクト)',
+          'AIエージェントが書いたTerraformを検証・実行するデプロイワーカーを実装 — AWS EC2・GCP Cloud Run への実デプロイを確認',
+          'ビジネスモデル・ROI設計およびフロントエンド開発',
+          'LLMの一般的な推奨と比べてデプロイ費用を33倍削減する構成で優秀賞を受賞',
         ],
       },
       {
@@ -94,7 +108,7 @@ export const jaData: ResumeData = {
           'JavaScript、React深化講義150個分量修了（Git、CI/CD、AWS、Figma、UI/UX含む）',
           'クローンコーディングプロジェクト進行及び現職開発者週間コードレビュー遂行',
           '大学同好会支援統合プラットフォーム「Dongari-um」開発参加',
-          '11月修了後、実際のサービスデプロイ — 2026.03 GA基準ページビュー9万突破',
+          '修了後に実サービスとしてリリース — GA累計ページビュー9万、約1年間無停止で運営',
         ],
       },
       {
@@ -165,7 +179,7 @@ export const jaData: ResumeData = {
     items: [
       {
         name: 'Dongari-um',
-        description: 'カカオ・テック・キャンパスのチームプロジェクトとして始まり、実際のサービスへと成長した大学サークル支援統合プラットフォームです。2026年3月現在、GAページビューが9万を突破し、現在も運営中です。',
+        description: 'カカオ・テック・キャンパスのチームプロジェクトとして始まり、実際のサービスへと成長した大学サークル支援統合プラットフォームです。リリース3日でページビュー3万、GA累計ページビュー9万を記録し、約1年間無停止で運営しています。',
         technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
         siteLink: 'https://dongarium.co.kr',
         githubLink: 'https://github.com/kakao-tech-campus-3rd-step3/Team18_FE',
@@ -173,7 +187,7 @@ export const jaData: ResumeData = {
         githubLabel: 'GitHubを見る',
         stats: [
           { value: 90000, label: 'GA ページビュー', suffix: '+' },
-          { value: 5, label: '運営ヶ月', suffix: 'mo' },
+          { value: 12, label: '運営ヶ月', suffix: 'mo' },
         ],
       },
     ],
@@ -181,6 +195,7 @@ export const jaData: ResumeData = {
   awards: {
     title: '🏆 受賞経歴',
     items: [
+      { award: '優秀賞', description: '2026 ソフトバンク ハッカソン (Pawploy)' },
       { award: '最優秀賞', description: '2024 海外就職インターンシップ成果報告会' },
       { award: '模範賞', description: '全南大学校 (卒業生中自己啓発記録簿1位)' },
       { award: '大賞', description: '2022 学生創業カンファレンス釜山未来企業家賞' },
